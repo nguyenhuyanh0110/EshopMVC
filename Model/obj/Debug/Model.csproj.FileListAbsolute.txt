@@ -1,0 +1,14 @@
+D:\Project\.Net\EshopMVC\Model\bin\Debug\Model.dll.config
+D:\Project\.Net\EshopMVC\Model\bin\Debug\Model.dll
+D:\Project\.Net\EshopMVC\Model\bin\Debug\Model.pdb
+D:\Project\.Net\EshopMVC\Model\bin\Debug\EntityFramework.dll
+D:\Project\.Net\EshopMVC\Model\bin\Debug\EntityFramework.SqlServer.dll
+D:\Project\.Net\EshopMVC\Model\bin\Debug\System.Data.SqlClient.dll
+D:\Project\.Net\EshopMVC\Model\bin\Debug\EntityFramework.xml
+D:\Project\.Net\EshopMVC\Model\bin\Debug\EntityFramework.SqlServer.xml
+D:\Project\.Net\EshopMVC\Model\bin\Debug\System.Data.SqlClient.xml
+D:\Project\.Net\EshopMVC\Model\obj\Debug\Model.csproj.AssemblyReference.cache
+D:\Project\.Net\EshopMVC\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+D:\Project\.Net\EshopMVC\Model\obj\Debug\Model.csproj.CopyComplete
+D:\Project\.Net\EshopMVC\Model\obj\Debug\Model.dll
+D:\Project\.Net\EshopMVC\Model\obj\Debug\Model.pdb
