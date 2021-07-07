@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Linq;
 
-namespace Model
+namespace Model.Entity
 {
     public partial class OnlineShopDbContext : DbContext
     {
@@ -12,6 +12,8 @@ namespace Model
         {
         }
 
+        public virtual DbSet<CATEGORY> CATEGORY { get; set; }
+        public virtual DbSet<PRODUCT> PRODUCT { get; set; }
         public virtual DbSet<USERINFO> USERINFO { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
