@@ -1,4 +1,5 @@
 ﻿using Model;
+using Model.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,13 +32,17 @@ namespace EshopMVC.Areas.Admin.Controllers
 
         // POST: Admin/Category/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(CATEGORY collection)
         {
             try
             {
-                // TODO: Add insert logic here
+                if(ModelState.IsValid)
+                {
+                    // TODO: Add insert logic here
 
-                return RedirectToAction("Index");
+                    return RedirectToAction("Index");
+                }
+                return View(collection);
             }
             catch
             {
