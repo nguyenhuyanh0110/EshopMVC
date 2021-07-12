@@ -11,11 +11,27 @@ namespace EshopMVC.Areas.Admin.Controllers
     public class CategoryController : Controller
     {
         // GET: Admin/Category
+        [HttpGet]
         public ActionResult Index()
         {
-            var index = new CategoryModel();
-            var CategoryModel = index.ListAll();
-            return View(CategoryModel);
+            return View();
+        }
+
+        [HttpGet]
+        //create a json list passing data to jsGrid
+        public JsonResult GetCategory()
+        {
+            using (OnlineShopDbContext db = new OnlineShopDbContext())
+            {
+                //LinQ to query Category List
+                var Result = db.CATEGORY.Select(a => new
+                {
+                    a.CATEGORYID,
+                    a.CATEGORYNAME
+                }).ToList();
+                var JsonCategory = Result;
+                return Json(JsonCategory, JsonRequestBehavior.AllowGet);
+            }
         }
 
         // GET: Admin/Category/Details/5
@@ -25,6 +41,7 @@ namespace EshopMVC.Areas.Admin.Controllers
         }
 
         // GET: Admin/Category/Create
+        [HttpGet]
         public ActionResult Create()
         {
             return View();
@@ -32,6 +49,7 @@ namespace EshopMVC.Areas.Admin.Controllers
 
         // POST: Admin/Category/Create
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(CATEGORY collection)
         {
             try

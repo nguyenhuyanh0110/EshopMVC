@@ -1,51 +1,84 @@
-﻿@model List<Model.Entity.CATEGORY>
+﻿@model IEnumerable<Model.Entity.CATEGORY>
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-@section category{
-    <!-- Begin Page Content -->
-    <div class="container-fluid">
+<link href="~/Content/assets/css/vendors/jsgrid.css" rel="stylesheet" />
 
-        <!-- Page Heading -->
-        <h1 class="h3 mb-2 text-gray-800">Danh mục sản phẩm</h1>
-
-        <!-- DataTales Example -->
-        <div class="card shadow mb-4">
-            <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Danh sách các danh mục</h6>
-            </div>
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                        <thead>
-                            <tr>
-                                <th>Mã số danh mục</th>
-                                <th>Tên danh mục</th>
-                            </tr>
-                        </thead>
-                        <tfoot>
-                            <tr>
-                                <th>Mã số danh mục</th>
-                                <th>Tên danh mục</th>
-                            </tr>
-                        </tfoot>
-                        <tbody>
-                            @foreach (var item in Model)
-                            {
-                                <tr>
-                                    <td>@item.CATEGORYID</td>
-                                    <td>@item.CATEGORYNAME</td>
-                                </tr>
-                            }
-                        </tbody>
-                    </table>
+<!-- Container-fluid starts-->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Products Category</h5>
+                </div>
+                <div class="card-body">
+                    <div class="btn-popup pull-right">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-original-title="test" data-bs-target="#exampleModal">Add Category</button>
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title f-w-600" id="exampleModalLabel">Add Physical Product</h5>
+                                        <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form class="needs-validation">
+                                            <div class="form">
+                                                <div class="form-group">
+                                                    <label for="validationCustom01" class="mb-1">Category Name :</label>
+                                                    <input class="form-control" id="validationCustom01" type="text">
+                                                </div>
+                                                <div class="form-group mb-0">
+                                                    <label for="validationCustom02" class="mb-1">Category Image :</label>
+                                                    <input class="form-control" id="validationCustom02" type="file">
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button class="btn btn-primary" type="button">Save</button>
+                                        <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="basicScenario" class="product-physical table-responsive"></div>
                 </div>
             </div>
         </div>
-
     </div>
-    <!-- /.container-fluid -->
-}
+</div>
+
+<!-- Container-fluid Ends-->
+<!-- Bootstrap js-->
+<script src="~/Content/assets/js/bootstrap.bundle.min.js"></script>
+
+<!-- feather icon js-->
+<script src="~/Content/assets/js/icons/feather-icon/feather.min.js"></script>
+<script src="~/Content/assets/js/icons/feather-icon/feather-icon.js"></script>
+
+<!-- Sidebar jquery-->
+<script src="~/Content/assets/js/sidebar-menu.js"></script>
+
+<!--Customizer admin-->
+<script src="~/Content/assets/js/admin-customizer.js"></script>
+
+<!-- Jsgrid js-->
+<script src="~/Content/assets/js/jsgrid/griddata-manage-product.js"></script>
+
+
+<!--right sidebar js-->
+<script src="~/Content/assets/js/chat-menu.js"></script>
+
+<!--script admin-->
+<script src="~/Content/assets/js/admin-script.js"></script>
+
+<!--JsGrid-->
+<script src="~/Content/assets/js/jsgrid/jsgrid.min.js"></script>
+<script src="~/Content/assets/js/jsgrid/jsgrid-manage-product.js"></script>
+<script src="~/Content/assets/js/jsgrid/griddata-manage-product.js"></script>
