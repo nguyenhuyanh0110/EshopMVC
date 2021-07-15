@@ -3,6 +3,7 @@ using System.Web.Mvc;
 using Model;
 using EshopMVC.Areas.AdminArea.Code;
 using System.Web.Security;
+using Model.Function;
 
 namespace EshopMVC.Areas.Admin.Controllers
 {
@@ -20,20 +21,28 @@ namespace EshopMVC.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(LoginModel model)
         {
-            //create a variable to take data from model
-            var result = new UserModel().Login(model.UserName, model.Password);
-            //using membership method by web.security to validate users
-            if (result && ModelState.IsValid)
+            if(ModelState.IsValid)
             {
-                //if log in success it will take the session of user and redirect the page
-                SessionHelper.SetSession(new UserSession() { UserName = model.UserName });
-                //redirect to homapage with username
-                return RedirectToAction("AdminHome", "AdminHome");
+                var Result = new UserFunction();
+                var AdminVerify = Result.Login(model.UserName, Security.Md5Hash(model.Password));
+                if(AdminVerify)
+                {
+                    //take UserInfo to save for session
+                    var UserInfo = Result.GetUserInfo(model.UserName);
+                    UserSession userSession = new UserSession();
+                    var Session = userSession;
+                    Session.UserName = UserInfo.USERNAME;
+                    SessionHelper.SetSession(new UserSession() {UserName = Session.UserName });
+                    return RedirectToAction("AdminHome", "AdminHome");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Sai thông tin hoặc mật khẩu");
+                }
             }
             else
             {
-                //there is no account, it will send an error massage
-                ModelState.AddModelError("", "Tên đăng nhập hoặc mật khẩu không đúng");
+                ModelState.AddModelError("", "Vui lòng nhập thông tin");
             }
             return View("Index");
         }

@@ -22,8 +22,8 @@
             }
         },
         fields: [
-            { name: "CATEGORYID", type: "text", title: "Category Id" ,width: 100 },
-            { name: "CATEGORYNAME", type: "text", title: "Category Name" ,width: 50 },
+            { name: "CATEGORYID", type: "text", title: "Category Id", width: 50 },
+            { name: "CATEGORYNAME", type: "text", title: "Category Name" ,width: 100 },
             { type: "control" }
         ]
     });
