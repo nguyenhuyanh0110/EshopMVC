@@ -1,4 +1,4 @@
-namespace Model.Entity
+﻿namespace Model.Entity
 {
     using System;
     using System.Collections.Generic;
@@ -26,7 +26,6 @@ namespace Model.Entity
         [StringLength(50)]
         public string USERNAME { get; set; }
 
-        [Required]
         [StringLength(50)]
         public string PASSWORD { get; set; }
     }
