@@ -18,7 +18,7 @@ namespace EshopMVC.Areas.Admin
             context.MapRoute(
                 "Admin_default",
                 "admin/{controller}/{action}/{id}",
-                new {Controller= "LogIn", action = "Index", id = "" } 
+                new {Controller= "AdminHome", action = "AdminHome", id = "" } 
             );
         }
     }

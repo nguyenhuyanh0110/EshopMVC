@@ -4,6 +4,7 @@ using Model;
 using EshopMVC.Areas.AdminArea.Code;
 using System.Web.Security;
 using Model.Function;
+using EshopMVC.Areas.Admin.Code;
 
 namespace EshopMVC.Areas.Admin.Controllers
 {
@@ -28,11 +29,10 @@ namespace EshopMVC.Areas.Admin.Controllers
                 if(AdminVerify)
                 {
                     //take UserInfo to save for session
-                    var UserInfo = Result.GetUserInfo(model.UserName);
-                    UserSession userSession = new UserSession();
-                    var Session = userSession;
-                    Session.UserName = UserInfo.USERNAME;
-                    SessionHelper.SetSession(new UserSession() {UserName = Session.UserName });
+                    var GetUserInfo = Result.GetUserInfo(model.UserName);
+                    UserSession UserSession = new UserSession();
+                    UserSession.UserName = GetUserInfo.USERNAME;
+                    Session.Add(SaveSession.UserSession, UserSession);
                     return RedirectToAction("AdminHome", "AdminHome");
                 }
                 else

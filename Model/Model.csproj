@@ -56,7 +56,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CategoryModel.cs" />
     <Compile Include="Entity\CATEGORY.cs" />
     <Compile Include="Entity\OnlineShopDbContext.cs" />
     <Compile Include="Entity\PRODUCT.cs" />
