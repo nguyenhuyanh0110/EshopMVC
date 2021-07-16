@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace EshopMVC.Areas.Admin.Controllers
 {
-    public class AdminHomeController : Controller
+    public class AdminHomeController : CheckSessionController
     {
         // GET: Admin/AdminHome
         public ActionResult AdminHome()
