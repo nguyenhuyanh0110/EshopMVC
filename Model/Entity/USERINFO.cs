@@ -22,10 +22,11 @@
         [StringLength(100)]
         public string EMAIL { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Vui lòng nhập thông tin tài khoản")]
         [StringLength(50)]
         public string USERNAME { get; set; }
 
+        [Required(ErrorMessage = "Vui lòng nhập mật khẩu")]
         [StringLength(50)]
         public string PASSWORD { get; set; }
     }

@@ -7,15 +7,22 @@ using System.Threading.Tasks;
 
 namespace Model.Function
 {
-    public class UserFunction
+    public class Function
     {
         OnlineShopDbContext db = new OnlineShopDbContext();
 
-        public string Insert(CATEGORY category)
+        public string InsertCategory(CATEGORY category)
         {
             db.CATEGORY.Add(category);
             db.SaveChanges();
             return category.CATEGORYNAME;
+        }
+
+        public string InsertUser(USERINFO user)
+        {
+            db.USERINFO.Add(user);
+            db.SaveChanges();
+            return user.USERNAME;
         }
 
         public USERINFO GetUserInfo(String UserName)

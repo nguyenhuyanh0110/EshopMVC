@@ -128,6 +128,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\RegisterController.cs" />
     <Compile Include="Areas\Admin\Session\SaveSession.cs" />
     <Compile Include="Areas\Admin\Session\UserSession.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminHomeController.cs" />
@@ -5387,7 +5388,6 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Admin\Views\web.config" />
-    <Content Include="Areas\Admin\Views\Login\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Areas\Admin\Views\AdminHome\AdminHome.cshtml" />
     <Content Include="Areas\Admin\Views\Category\Index.cshtml" />
@@ -5642,6 +5642,9 @@
     <Content Include="Content\assets\scss\vendors\themify\_themify-icons.scss" />
     <Content Include="Content\assets\scss\vendors\themify\_variables.scss" />
     <Content Include="Content\assets\scss\_typeahead-search.scss" />
+    <Content Include="Areas\Admin\Views\Shared\_LogInLayout.cshtml" />
+    <Content Include="Areas\Admin\Views\Login\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Register\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -5670,7 +5673,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Views\CheckSession\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
@@ -5687,9 +5689,9 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Model\Model.csproj">
+    <ProjectReference Include="..\Model\Database.csproj">
       <Project>{856f1c4d-7386-49a1-a2b4-0ad16c4760b6}</Project>
-      <Name>Model</Name>
+      <Name>Database</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
