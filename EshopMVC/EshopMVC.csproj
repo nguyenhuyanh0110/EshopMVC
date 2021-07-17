@@ -129,6 +129,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\RegisterController.cs" />
+    <Compile Include="Areas\Admin\Data\RegisterModel.cs" />
     <Compile Include="Areas\Admin\Session\SaveSession.cs" />
     <Compile Include="Areas\Admin\Session\UserSession.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminHomeController.cs" />

@@ -15,8 +15,8 @@
     <meta name="description" content="Multikart admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
     <meta name="keywords" content="admin template, Multikart admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="pixelstrap">
-    <link rel="icon" href="../assets/images/dashboard/favicon.png" type="image/x-icon">
-    <link rel="shortcut icon" href="../assets/images/dashboard/favicon.png" type="image/x-icon">
+    <link rel="icon" href="~/Content/assets/images/dashboard/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="~/Content/assets/images/dashboard/favicon.png" type="image/x-icon">
     <title>Multikart - Premium Admin Template</title>
 
     <!-- Google font-->
@@ -177,42 +177,40 @@
                                         <a class="nav-link" href="@Url.Action("Index","Register")" role="tab" aria-controls="top-contact" aria-selected="false"><span class="icon-unlock me-2"></span>Register</a>
                                     </li>
                                 </ul>
-                                <div class="tab-content" id="top-tabContent">
-                                    <div id="top-profile" role="tabpanel" aria-labelledby="top-profile-tab">
-                                        @using (Html.BeginForm("Login", "LogIn", FormMethod.Post))
-                                        {
-                                            //To make sure token client is match with server
-                                            @Html.AntiForgeryToken()
-                                            @Html.ValidationSummary(true, null, new { @class = "alert alert-danger" })
-                                            <div class="form-group">
-                                                @Html.TextBoxFor(Model => Model.UserName, new { @class = "form-control", @placeholder = "UserName", @autofocus = "autofocus" })
+                                <div id="top-profile" role="tabpanel" aria-labelledby="top-profile-tab">
+                                    @using (Html.BeginForm("Login", "LogIn", FormMethod.Post))
+                                    {
+                                        //To make sure token client is match with server
+                                        @Html.AntiForgeryToken()
+                                        @Html.ValidationSummary(true, null, new { @class = "alert alert-danger" })
+                                        <div class="form-group">
+                                            @Html.TextBoxFor(Model => Model.UserName, new { @class = "form-control", @placeholder = "UserName", @autofocus = "autofocus" })
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.TextBoxFor(Model => Model.Password, new { @class = "form-control", @placeholder = "Password", @type = "password" })
+                                        </div>
+                                        <div class="form-terms">
+                                            <div class="form-check mesm-2">
+                                                <input type="checkbox" class="form-check-input" id="customControlAutosizing">
+                                                <label class="form-check-label ps-2" for="customControlAutosizing">Remember me</label>
+                                                <a href="#" class="btn btn-default forgot-pass">lost your password</a>
                                             </div>
-                                            <div class="form-group">
-                                                @Html.TextBoxFor(Model => Model.Password, new { @class = "form-control", @placeholder = "Password", @type = "password" })
-                                            </div>
-                                            <div class="form-terms">
-                                                <div class="form-check mesm-2">
-                                                    <input type="checkbox" class="form-check-input" id="customControlAutosizing">
-                                                    <label class="form-check-label ps-2" for="customControlAutosizing">Remember me</label>
-                                                    <a href="#" class="btn btn-default forgot-pass">lost your password</a>
-                                                </div>
-                                            </div>
-                                            <div class="form-button">
-                                                <button type="submit" class="btn btn-primary" , id="btnsubmit">
-                                                    Sign in
-                                                </button>
-                                            </div>
-                                            <div class="form-footer">
-                                                <span>Or Login up with social platforms</span>
-                                                <ul class="social">
-                                                    <li><a class="ti-facebook" href=""></a></li>
-                                                    <li><a class="ti-twitter" href=""></a></li>
-                                                    <li><a class="ti-instagram" href=""></a></li>
-                                                    <li><a class="ti-pinterest" href=""></a></li>
-                                                </ul>
-                                            </div>
-                                        }
-                                    </div>
+                                        </div>
+                                        <div class="form-button">
+                                            <button type="submit" class="btn btn-primary" , id="btnsubmit">
+                                                Sign in
+                                            </button>
+                                        </div>
+                                        <div class="form-footer">
+                                            <span>Or Login up with social platforms</span>
+                                            <ul class="social">
+                                                <li><a class="ti-facebook" href=""></a></li>
+                                                <li><a class="ti-twitter" href=""></a></li>
+                                                <li><a class="ti-instagram" href=""></a></li>
+                                                <li><a class="ti-pinterest" href=""></a></li>
+                                            </ul>
+                                        </div>
+                                    }
                                 </div>
                             </div>
                         </div>

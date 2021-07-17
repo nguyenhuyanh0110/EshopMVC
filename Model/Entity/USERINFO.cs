@@ -12,7 +12,6 @@
         [Key]
         public int USERID { get; set; }
 
-        [Required]
         [StringLength(100)]
         public string HOTEN { get; set; }
 
@@ -22,12 +21,13 @@
         [StringLength(100)]
         public string EMAIL { get; set; }
 
-        [Required(ErrorMessage = "Vui lòng nhập thông tin tài khoản")]
+        [Required]
         [StringLength(50)]
         public string USERNAME { get; set; }
 
-        [Required(ErrorMessage = "Vui lòng nhập mật khẩu")]
+        [Required]
         [StringLength(50)]
         public string PASSWORD { get; set; }
+
     }
 }

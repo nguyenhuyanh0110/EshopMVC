@@ -1,4 +1,4 @@
-﻿@model Model.Entity.USERINFO
+﻿@model EshopMVC.Areas.AdminArea.Data.Register
 
 @{
     Layout = null;
@@ -176,39 +176,56 @@
                                         <a class="nav-link active" id="contact-top-tab" data-bs-toggle="tab" href="#top-contact" role="tab" aria-controls="top-contact" aria-selected="false"><span class="icon-unlock me-2"></span>Register</a>
                                     </li>
                                 </ul>
-                                <div class="tab-content" id="top-tabContent">
-                                    <div id="top-contact" role="tabpanel" aria-labelledby="contact-top-tab">
-                                        <form class="form-horizontal auth-form">
-                                            <div class="form-group">
-                                                <input required="" name="login[username]" type="email" class="form-control" placeholder="Username" id="exampleInputEmail12">
+                                <div id="top-contact" role="tabpanel" aria-labelledby="contact-top-tab">
+                                    @using (Html.BeginForm("CreateUser", "Register", FormMethod.Post))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        @Html.ValidationSummary(true, null, new { @class = "alert alert-danger" })
+                                        <div class="form-group">
+                                            @Html.ValidationMessageFor(model => model.UserName,"",new {@class = "text-danger"})
+                                            @Html.TextBoxFor(Model => Model.UserName, new { @class = "form-control", @placeholder = "UserName", @autofocus = "autofocus" })
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                                            @Html.TextBoxFor(Model => Model.Password, new { @class = "form-control", @placeholder = "Password", @type = "password" })
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+                                            @Html.TextBoxFor(Model => Model.ConfirmPassword, new { @class = "form-control", @placeholder = "Confirm Password", @type = "password" })
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.ValidationMessageFor(model => model.HoTen, "", new { @class = "text-danger" })
+                                            @Html.TextBoxFor(Model => Model.HoTen, new { @class = "form-control", @placeholder = "Họ Tên", @autofocus = "autofocus" })
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.ValidationMessageFor(model => model.Sdt, "", new { @class = "text-danger" })
+                                            @Html.TextBoxFor(Model => Model.Sdt, new { @class = "form-control", @placeholder = "Số điện thoại", @autofocus = "autofocus" })
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                            @Html.TextBoxFor(Model => Model.Email, new { @class = "form-control", @placeholder = "Email", @autofocus = "autofocus" })
+                                        </div>
+                                        <div class="form-terms">
+                                            <div class="form-check mesm-2">
+                                                <input type="checkbox" class="form-check-input" id="customControlAutosizing1">
+                                                <label class="form-check-label ps-2" for="customControlAutosizing1"><span>I agree all statements in <a href="" class="pull-right">Terms &amp; Conditions</a></span></label>
                                             </div>
-                                            <div class="form-group">
-                                                <input required="" name="login[password]" type="password" class="form-control" placeholder="Password">
-                                            </div>
-                                            <div class="form-group">
-                                                <input required="" name="login[password]" type="password" class="form-control" placeholder="Confirm Password">
-                                            </div>
-                                            <div class="form-terms">
-                                                <div class="form-check mesm-2">
-                                                    <input type="checkbox" class="form-check-input" id="customControlAutosizing1">
-                                                    <label class="form-check-label ps-2" for="customControlAutosizing1"><span>I agree all statements in <a href="" class="pull-right">Terms &amp; Conditions</a></span></label>
-                                                </div>
-                                            </div>
-                                            <div class="form-button">
-                                                <button class="btn btn-primary" type="submit">Register</button>
-                                            </div>
-                                            <div class="form-footer">
-                                                <span>Or Sign up with social platforms</span>
-                                                <ul class="social">
-                                                    <li><a class="ti-facebook" href=""></a></li>
-                                                    <li><a class="ti-twitter" href=""></a></li>
-                                                    <li><a class="ti-instagram" href=""></a></li>
-                                                    <li><a class="ti-pinterest" href=""></a></li>
-                                                </ul>
-                                            </div>
-                                        </form>
-                                    </div>
-
+                                        </div>
+                                        <div class="form-button">
+                                            <button type="submit" class="btn btn-primary" , id="btnsubmit">
+                                                Register
+                                            </button>
+                                        </div>
+                                        <div class="form-footer">
+                                            <span>Or Sign up with social platforms</span>
+                                            <ul class="social">
+                                                <li><a class="ti-facebook" href=""></a></li>
+                                                <li><a class="ti-twitter" href=""></a></li>
+                                                <li><a class="ti-instagram" href=""></a></li>
+                                                <li><a class="ti-pinterest" href=""></a></li>
+                                            </ul>
+                                        </div>
+                                    }
                                 </div>
                             </div>
                         </div>

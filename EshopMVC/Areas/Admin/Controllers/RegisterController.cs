@@ -17,17 +17,44 @@ namespace EshopMVC.Areas.Admin.Controllers
             return View();
         }
 
-        public ActionResult Register(USERINFO model)
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateUser(Register model)
         {
-            var user = new Function();
-            string UserName = user.InsertUser(model);
-            if (UserName != null)
+            //if form is not null
+            if(ModelState.IsValid)
             {
-                return RedirectToAction("Index", "User");
+                var user = new Function();
+                if (user.CheckUserInfo(model.UserName))
+                {
+                    ModelState.AddModelError("", "Tên đăng nhập đã tồn tại");
+                }
+                else if (user.CheckUserInfo(model.Email))
+                {
+                    ModelState.AddModelError("", "Email đã tồn tại");
+                }
+                else
+                {
+                    //add to table UserInfo by Model view
+                    var CreateUser = new USERINFO();
+                    CreateUser.USERNAME = model.UserName;
+                    CreateUser.PASSWORD = Security.Md5Hash(model.Password);
+                    CreateUser.HOTEN = model.HoTen;
+                    CreateUser.SODT = model.Sdt;
+                    CreateUser.EMAIL = model.Email;
+                    var Result = user.InsertUser(CreateUser);
+                    if (Result != null)
+                    {
+                        ModelState.AddModelError("", "Đăng ký thành công");
+                        //reset form after success
+                        ModelState.Clear();
+                        return RedirectToAction("Index", "LogIn");
+                    }  
+                }
             }
             else
             {
-                ModelState.AddModelError("", "Tài khoản đã được đăng ký");
+                ModelState.AddModelError("", "Đăng ký không thành công");
             }
             return View("Index");
         }
