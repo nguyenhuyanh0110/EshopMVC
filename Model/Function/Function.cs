@@ -7,15 +7,22 @@ using System.Threading.Tasks;
 
 namespace Model.Function
 {
-    public class UserFunction
+    public class Function
     {
         OnlineShopDbContext db = new OnlineShopDbContext();
 
-        public string Insert(CATEGORY category)
+        public long InsertCategory(CATEGORY category)
         {
             db.CATEGORY.Add(category);
             db.SaveChanges();
-            return category.CATEGORYNAME;
+            return category.CATEGORYID;
+        }
+
+        public string InsertUser(USERINFO user)
+        {
+            db.USERINFO.Add(user);
+            db.SaveChanges();
+            return user.USERNAME;
         }
 
         public USERINFO GetUserInfo(String UserName)
@@ -28,6 +35,19 @@ namespace Model.Function
         {
             var Result = db.USERINFO.Where(a => a.USERNAME.Equals(UserName) && a.PASSWORD.Equals(Password)).ToList();
             if(Result.Count() > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool CheckUserInfo(string UserName)
+        {
+            var Result = db.USERINFO.Count(a => a.USERNAME.Equals(UserName));
+            if (Result > 0)
             {
                 return true;
             }

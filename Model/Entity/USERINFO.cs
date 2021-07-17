@@ -12,7 +12,6 @@
         [Key]
         public int USERID { get; set; }
 
-        [Required]
         [StringLength(100)]
         public string HOTEN { get; set; }
 
@@ -26,7 +25,9 @@
         [StringLength(50)]
         public string USERNAME { get; set; }
 
+        [Required]
         [StringLength(50)]
         public string PASSWORD { get; set; }
+
     }
 }
