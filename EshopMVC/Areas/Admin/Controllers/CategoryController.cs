@@ -1,5 +1,7 @@
-﻿using Model;
+﻿using EshopMVC.Areas.Admin.Data;
+using Model;
 using Model.Entity;
+using Model.Function;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -50,28 +52,42 @@ namespace EshopMVC.Areas.Admin.Controllers
         // POST: Admin/Category/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(CATEGORY collection)
+        public ActionResult Create(CategoryModel model)
         {
-            try
+            
+            if (ModelState.IsValid)
             {
-                if(ModelState.IsValid)
+                var category = new CategoryFunction();
+                if(category.CheckCategory(model.CategoryName))
                 {
-                    // TODO: Add insert logic here
-
-                    return RedirectToAction("Index");
+                    ModelState.AddModelError("", "Danh mục sản phẩm đã có");
                 }
-                return View(collection);
+                else
+                {
+                    var CreateCategory = new CATEGORY();
+                    CreateCategory.CATEGORYNAME = model.CategoryName;
+                    var Result = category.InsertCategory(CreateCategory);
+                    if(Result != null)
+                    {
+                        ModelState.AddModelError("", "Thêm danh mục sản phẩm thành công");
+                        ModelState.Clear();
+                        return View("Index");
+                    }
+                }
             }
-            catch
+            else
             {
-                return View();
+                ModelState.AddModelError("", "Thêm sản phẩm không thành công");
             }
+            return View("Index");
         }
 
         // GET: Admin/Category/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var category = new CategoryFunction();
+            var FindCategory = category.GetCategory(id);
+            return View(FindCategory);
         }
 
         // POST: Admin/Category/Edit/5

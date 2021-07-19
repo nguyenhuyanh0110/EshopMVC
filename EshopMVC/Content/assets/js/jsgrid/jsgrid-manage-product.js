@@ -1,4 +1,4 @@
-(function($) {
+﻿(function($) {
     "use strict";
     $("#basicScenario").jsGrid({
         width: "100%",
@@ -22,8 +22,8 @@
             }
         },
         fields: [
-            { name: "CATEGORYID", type: "text", title: "Category Id", width: 50 },
-            { name: "CATEGORYNAME", type: "text", title: "Category Name" ,width: 100 },
+            { name: "CATEGORYID", type: "text", title: "Mã số", width: 50 },
+            { name: "CATEGORYNAME", type: "text", title: "Tên" ,width: 100 },
             { type: "control" }
         ]
     });

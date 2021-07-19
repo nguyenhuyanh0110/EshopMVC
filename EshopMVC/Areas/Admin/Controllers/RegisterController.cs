@@ -24,7 +24,7 @@ namespace EshopMVC.Areas.Admin.Controllers
             //if form is not null
             if(ModelState.IsValid)
             {
-                var user = new Function();
+                var user = new UserFunction();
                 if (user.CheckUserInfo(model.UserName))
                 {
                     ModelState.AddModelError("", "Tên đăng nhập đã tồn tại");

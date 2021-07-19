@@ -11,6 +11,7 @@ namespace Model.Entity
     {
         public int CATEGORYID { get; set; }
 
+        [Required]
         [StringLength(250)]
         public string CATEGORYNAME { get; set; }
     }
