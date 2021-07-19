@@ -24,7 +24,7 @@ namespace EshopMVC.Areas.Admin.Controllers
         {
             if(ModelState.IsValid)
             {
-                var Result = new Function();
+                var Result = new UserFunction();
                 var AdminVerify = Result.Login(model.UserName, Security.Md5Hash(model.Password));
                 if(AdminVerify)
                 {

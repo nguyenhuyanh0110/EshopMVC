@@ -60,8 +60,9 @@
     <Compile Include="Entity\OnlineShopDbContext.cs" />
     <Compile Include="Entity\PRODUCT.cs" />
     <Compile Include="Entity\USERINFO.cs" />
+    <Compile Include="Function\CategoryFunction.cs" />
     <Compile Include="Function\Security.cs" />
-    <Compile Include="Function\Function.cs" />
+    <Compile Include="Function\UserFunction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

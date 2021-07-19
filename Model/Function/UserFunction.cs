@@ -7,16 +7,9 @@ using System.Threading.Tasks;
 
 namespace Model.Function
 {
-    public class Function
+    public class UserFunction
     {
         OnlineShopDbContext db = new OnlineShopDbContext();
-
-        public long InsertCategory(CATEGORY category)
-        {
-            db.CATEGORY.Add(category);
-            db.SaveChanges();
-            return category.CATEGORYID;
-        }
 
         public string InsertUser(USERINFO user)
         {
@@ -28,6 +21,19 @@ namespace Model.Function
         public USERINFO GetUserInfo(String UserName)
         {
             return db.USERINFO.SingleOrDefault(a => a.USERNAME == UserName);
+        }
+
+        public bool CheckUserInfo(string UserName)
+        {
+            var Result = db.USERINFO.Count(a => a.USERNAME.Equals(UserName));
+            if (Result > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         //check if there is an account
@@ -44,14 +50,19 @@ namespace Model.Function
             }
         }
 
-        public bool CheckUserInfo(string UserName)
+        public bool Update (USERINFO user)
         {
-            var Result = db.USERINFO.Count(a => a.USERNAME.Equals(UserName));
-            if (Result > 0)
+            try
             {
+                var update = db.USERINFO.Find(user);
+                update.USERNAME = user.USERNAME;
+                update.HOTEN = user.HOTEN;
+                update.SODT = user.SODT;
+                update.EMAIL = user.EMAIL;
+                db.SaveChanges();
                 return true;
             }
-            else
+            catch (Exception exp)
             {
                 return false;
             }

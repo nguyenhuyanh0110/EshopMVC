@@ -7,7 +7,6 @@ D:\Project\.Net\EshopMVC\Model\bin\Debug\System.Data.SqlClient.dll
 D:\Project\.Net\EshopMVC\Model\bin\Debug\EntityFramework.xml
 D:\Project\.Net\EshopMVC\Model\bin\Debug\EntityFramework.SqlServer.xml
 D:\Project\.Net\EshopMVC\Model\bin\Debug\System.Data.SqlClient.xml
-D:\Project\.Net\EshopMVC\Model\obj\Debug\Database.csproj.AssemblyReference.cache
 D:\Project\.Net\EshopMVC\Model\obj\Debug\Database.csproj.CoreCompileInputs.cache
 D:\Project\.Net\EshopMVC\Model\obj\Debug\Database.csproj.CopyComplete
 D:\Project\.Net\EshopMVC\Model\obj\Debug\Model.dll

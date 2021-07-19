@@ -129,6 +129,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\RegisterController.cs" />
+    <Compile Include="Areas\Admin\Data\CategoryModel.cs" />
     <Compile Include="Areas\Admin\Data\RegisterModel.cs" />
     <Compile Include="Areas\Admin\Session\SaveSession.cs" />
     <Compile Include="Areas\Admin\Session\UserSession.cs" />
@@ -5392,7 +5393,6 @@
     <Content Include="Areas\Admin\Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Areas\Admin\Views\AdminHome\AdminHome.cshtml" />
     <Content Include="Areas\Admin\Views\Category\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Category\Create.cshtml" />
     <Content Include="Content\assets\assets\fonts\fontawesome-webfont.eot" />
     <Content Include="Content\assets\assets\fonts\fontawesome-webfont.ttf" />
     <Content Include="Content\assets\assets\fonts\fontawesome-webfont.woff" />
