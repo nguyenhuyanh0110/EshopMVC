@@ -36,15 +36,31 @@ namespace Model.Function
             }
         }
 
-        public bool Update(CATEGORY user)
+        public bool EditCategory(CATEGORY category)
         {
             try
             {
-                var update = db.CATEGORY.Find(user);
-                update.CATEGORYNAME = user.CATEGORYNAME;
+                var list = db.CATEGORY.Find(category.CATEGORYID);
+                list.CATEGORYNAME = category.CATEGORYNAME;
+                db.SaveChanges();
                 return true;
             }
-            catch (Exception exp)
+            catch
+            {
+                return false;
+            }
+        }
+
+        public bool DeleteCategory(int id)
+        {
+            try
+            {
+                var category = db.CATEGORY.Find(id);
+                db.CATEGORY.Remove(category);
+                db.SaveChanges();
+                return true;
+            }
+            catch(Exception)
             {
                 return false;
             }

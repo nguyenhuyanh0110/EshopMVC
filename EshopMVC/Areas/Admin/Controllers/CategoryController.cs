@@ -54,11 +54,12 @@ namespace EshopMVC.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(CategoryModel model)
         {
-            
+            var category = new CategoryFunction();
+
             if (ModelState.IsValid)
             {
-                var category = new CategoryFunction();
-                if(category.CheckCategory(model.CategoryName))
+
+                if (category.CheckCategory(model.CategoryName))
                 {
                     ModelState.AddModelError("", "Danh mục sản phẩm đã có");
                 }
@@ -73,59 +74,54 @@ namespace EshopMVC.Areas.Admin.Controllers
                         ModelState.Clear();
                         return View("Index");
                     }
+                    else
+                    {
+                        ModelState.AddModelError("", "Đã có danh mục sản phẩm");
+                        ModelState.Clear();
+                        return View("Index");
+                    }
                 }
             }
             else
             {
                 ModelState.AddModelError("", "Thêm sản phẩm không thành công");
+                ModelState.Clear();
             }
             return View("Index");
         }
 
+        [HttpPost]
         // GET: Admin/Category/Edit/5
-        public ActionResult Edit(int id)
+        //using direct table database because on the front-end doesnt have editor for value
+        public JsonResult Edit(CATEGORY model)
         {
             var category = new CategoryFunction();
-            var FindCategory = category.GetCategory(id);
-            return View(FindCategory);
-        }
 
-        // POST: Admin/Category/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
+                var Result = category.EditCategory(model);
+                if (Result)
+                {
+                    ModelState.AddModelError("", "Thêm danh mục sản phẩm thành công");
+                    ModelState.Clear();
+                    return Json(Result, JsonRequestBehavior.AllowGet);
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Thêm sản phẩm không thành công");
+                    ModelState.Clear();
+                }
             }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Admin/Category/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
+            return Json(model, JsonRequestBehavior.AllowGet);
         }
 
         // POST: Admin/Category/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public JsonResult Delete(int CategoryId)
         {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            var item = new CategoryFunction();
+            var delete = item.DeleteCategory(CategoryId);
+            return Json(delete, JsonRequestBehavior.AllowGet); 
         }
     }
 }

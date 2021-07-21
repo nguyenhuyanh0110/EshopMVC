@@ -16,36 +16,33 @@
                     <h5>Products Category</h5>
                 </div>
                 <div class="card-body">
-                    @Html.ValidationSummary(true,"", new { @class = "text-danger" })
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                     <div class="btn-popup pull-right">
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-original-title="test" data-bs-target="#exampleModal">Add Category</button>
                         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
-
+                                    <div class="modal-header">
+                                        <h5 class="modal-title f-w-600" id="exampleModalLabel">Add Category</h5>
+                                        <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                    </div>
                                     @using (Html.BeginForm("Create", "Category", FormMethod.Post))
                                     {
                                         @Html.AntiForgeryToken()
-                                        <div class="modal-header">
-                                            <h5 class="modal-title f-w-600" id="exampleModalLabel">Add Category</h5>
-                                            <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                                        </div>
                                         <div class="modal-body">
                                             <div class="form">
                                                 <div class="form-group">
                                                     @Html.LabelFor(model => model.CategoryName, htmlAttributes: new { @class = "mb-1" })
-                                                    @Html.EditorFor(model => model.CategoryName, new { @class = "form-control" })
+                                                    @Html.EditorFor(model => model.CategoryName, new { @class = "form-control", @autofocus = "autofocus" })
                                                     @Html.ValidationMessageFor(model => model.CategoryName, "", new { @class = "text-danger" })
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="modal-footer">
-                                            <div class="form-button">
-                                                <button type="submit" class="btn btn-primary" id="btnsubmit">
-                                                    Save
-                                                </button>
-                                                <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Close</button>
-                                            </div>
+                                            <button type="submit" class="btn btn-primary" id="btnsubmit">
+                                                Save
+                                            </button>
+                                            <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Close</button>
                                         </div>
                                     }
                                 </div>
@@ -82,4 +79,3 @@
 <!--JsGrid-->
 <script src="~/Content/assets/js/jsgrid/jsgrid.min.js"></script>
 <script src="~/Content/assets/js/jsgrid/jsgrid-manage-product.js"></script>
-<script src="~/Content/assets/js/jsgrid/griddata-manage-product.js"></script>
