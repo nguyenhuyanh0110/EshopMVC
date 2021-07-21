@@ -9,6 +9,7 @@ namespace Model.Entity
     [Table("CATEGORY")]
     public partial class CATEGORY
     {
+        [Key]
         public int CATEGORYID { get; set; }
 
         [Required]
