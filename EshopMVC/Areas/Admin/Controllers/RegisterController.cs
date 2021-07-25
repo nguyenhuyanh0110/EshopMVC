@@ -1,10 +1,6 @@
-﻿using EshopMVC.Areas.AdminArea.Data;
+﻿using EshopMVC.Areas.Admin.Data;
 using Model.Entity;
 using Model.Function;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace EshopMVC.Areas.Admin.Controllers

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace EshopMVC.Areas.AdminArea.Data
+namespace EshopMVC.Areas.Admin.Data
 {
     public class Register
     {

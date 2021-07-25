@@ -11,18 +11,6 @@ namespace Model.Function
     {
         OnlineShopDbContext db = new OnlineShopDbContext();
 
-        public string InsertCategory(CATEGORY category)
-        {
-            db.CATEGORY.Add(category);
-            db.SaveChanges();
-            return category.CATEGORYNAME;
-        }
-
-        public CATEGORY GetCategory(int category)
-        {
-            return db.CATEGORY.SingleOrDefault(a => a.CATEGORYID == category);
-        }
-
         public bool CheckCategory(string CategoryName)
         {
             var category = db.CATEGORY.Where(a => a.CATEGORYNAME == CategoryName);
@@ -34,6 +22,18 @@ namespace Model.Function
             {
                 return false;
             }
+        }
+
+        public CATEGORY GetCategory(int category)
+        {
+            return db.CATEGORY.SingleOrDefault(a => a.CATEGORYID == category);
+        }
+
+        public string InsertCategory(CATEGORY category)
+        {
+            db.CATEGORY.Add(category);
+            db.SaveChanges();
+            return category.CATEGORYNAME;
         }
 
         public bool EditCategory(CATEGORY category)

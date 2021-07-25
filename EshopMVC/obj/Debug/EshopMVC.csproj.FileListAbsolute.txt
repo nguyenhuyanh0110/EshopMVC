@@ -76,7 +76,6 @@ D:\Project\.Net\EshopMVC\EshopMVC\bin\System.Web.Razor.xml
 D:\Project\.Net\EshopMVC\EshopMVC\bin\System.Web.WebPages.xml
 D:\Project\.Net\EshopMVC\EshopMVC\bin\System.Web.WebPages.Deployment.xml
 D:\Project\.Net\EshopMVC\EshopMVC\bin\System.Web.WebPages.Razor.xml
-D:\Project\.Net\EshopMVC\EshopMVC\bin\Newtonsoft.Json.xml
 D:\Project\.Net\EshopMVC\EshopMVC\bin\Antlr3.Runtime.pdb
 D:\Project\.Net\EshopMVC\EshopMVC\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 D:\Project\.Net\EshopMVC\EshopMVC\obj\Debug\EshopMVC.csproj.AssemblyReference.cache
@@ -84,3 +83,4 @@ D:\Project\.Net\EshopMVC\EshopMVC\obj\Debug\EshopMVC.csproj.CoreCompileInputs.ca
 D:\Project\.Net\EshopMVC\EshopMVC\obj\Debug\EshopMVC.csproj.CopyComplete
 D:\Project\.Net\EshopMVC\EshopMVC\obj\Debug\EshopMVC.dll
 D:\Project\.Net\EshopMVC\EshopMVC\obj\Debug\EshopMVC.pdb
+D:\Project\.Net\EshopMVC\EshopMVC\bin\Newtonsoft.Json.xml
