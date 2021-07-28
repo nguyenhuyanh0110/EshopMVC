@@ -61,17 +61,11 @@ namespace EshopMVC.Areas.Admin.Controllers
                         ModelState.Clear();
                         return View("Index");
                     }
-                    else
-                    {
-                        ModelState.AddModelError("", "Đã có danh mục sản phẩm");
-                        ModelState.Clear();
-                        return View("Index");
-                    }
                 }
             }
             else
             {
-                ModelState.AddModelError("", "Thêm sản phẩm không thành công");
+                ModelState.AddModelError("", "Vui lòng nhập danh mục");
                 ModelState.Clear();
             }
             return View("Index");

@@ -1,5 +1,9 @@
-﻿using System;
+﻿using EshopMVC.Areas.Admin.Data;
+using Model.Entity;
+using Model.Function;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -8,82 +12,62 @@ namespace EshopMVC.Areas.Admin.Controllers
 {
     public class ProductController : Controller
     {
-        // GET: Admin/Product
-        public ActionResult Index()
-        {
-            return View();
-        }
-
-        // GET: Admin/Product/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
+        [HttpGet]
         // GET: Admin/Product/Create
         public ActionResult Create()
         {
+            //set view bag to send data category id to product
+            SetProductList();
             return View();
         }
 
         // POST: Admin/Product/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(ProductModel model, HttpPostedFileBase file)
         {
-            try
+            var function = new ProductFunction();
+            if (ModelState.IsValid || file != null)
             {
-                // TODO: Add insert logic here
+                if (function.CheckProduct(model.ProductName))
+                {
+                    ModelState.AddModelError("", "Đã có thông tin sản phẩm");
+                }
+                else
+                {
+                    //Get posted image file
+                    string ImageName = Path.GetFileName(file.FileName);
+                    string FolderPath = Server.MapPath("~/Content/Image/" + ImageName);
+                    file.SaveAs(FolderPath);
+                    model.ProductImage = ImageName;
 
-                return RedirectToAction("Index");
+                    var item = new PRODUCT
+                    {
+                        PRODUTNAME = model.ProductName,
+                        PRODUCTCATEGORY = model.ProductCategory,
+                        PRODUCTPRICE = model.ProductPrice,
+                        PRODUCTIMAGE = model.ProductImage,
+                        PRODUCTDESC = model.ProductDesc
+                    };
+
+                    var InsertDb = function.InsertProduct(item);
+                    if (InsertDb != null)
+                    {
+                        ModelState.AddModelError("", "Thêm sản phẩm thành công");
+                        SetProductList();
+                        ModelState.Clear();
+                        return View("Create");
+                    }
+                }
             }
-            catch
-            {
-                return View();
-            }
+            ModelState.AddModelError("", "Vui lòng nhập thông tin sản phẩm");
+            SetProductList();
+            return View("Create");
         }
 
-        // GET: Admin/Product/Edit/5
-        public ActionResult Edit(int id)
+        public void SetProductList(int? SelectCategory = null)
         {
-            return View();
-        }
-
-        // POST: Admin/Product/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Admin/Product/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Admin/Product/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            var item = new ProductFunction();
+            ViewBag.ProductCategory = new SelectList(item.ListCategory(), "CATEGORYID", "CATEGORYNAME", SelectCategory);
         }
     }
 }
