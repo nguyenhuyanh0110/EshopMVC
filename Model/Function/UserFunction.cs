@@ -62,7 +62,7 @@ namespace Model.Function
                 db.SaveChanges();
                 return true;
             }
-            catch (Exception exp)
+            catch (Exception)
             {
                 return false;
             }

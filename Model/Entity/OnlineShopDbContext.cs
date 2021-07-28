@@ -18,6 +18,10 @@ namespace Model.Entity
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<PRODUCT>()
+                .Property(e => e.PRODUCTIMAGE)
+                .IsUnicode(false);
+
             modelBuilder.Entity<USERINFO>()
                 .Property(e => e.SODT)
                 .IsUnicode(false);

@@ -1,0 +1,157 @@
+﻿@model EshopMVC.Areas.Admin.Data.ProductModel
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="page-body">
+    <!-- Container-fluid starts-->
+    <div class="container-fluid">
+        <div class="page-header">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="page-header-left">
+                        <h3>
+                            Add Products
+                            <small>Multikart Admin panel</small>
+                        </h3>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <ol class="breadcrumb pull-right">
+                        <li class="breadcrumb-item"><a href="index.html"><i data-feather="home"></i></a></li>
+                        <li class="breadcrumb-item">Physical</li>
+                        <li class="breadcrumb-item active">Add Product</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Container-fluid Ends-->
+    <!-- Container-fluid starts-->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Add Product</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row product-adding">
+                            <div class="col-xl-5">
+                                <div class="add-product">
+                                    <div class="row">
+                                        <div class="col-xl-9 xl-50 col-sm-6 col-9">
+                                            <img src="~/Content/assets/images/pro3/1.jpg" alt="" class="img-fluid image_zoom_1 blur-up lazyloaded">
+                                        </div>
+                                        <div class="col-xl-3 xl-50 col-sm-6 col-3">
+                                            <ul class="file-upload-product">
+                                                <li><div class="box-input-file"><input class="upload" type="file"><i class="fa fa-plus"></i></div></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-7">
+                                <!--enctype for upload image files-->
+                                @using (Html.BeginForm("Create", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                {
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                    @Html.AntiForgeryToken()
+                                    <div class="form-horizontal">
+                                        <hr />
+                                        <div class="form-group row">
+                                            @Html.LabelFor(model => model.ProductCategory, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-md-10">
+                                                @Html.DropDownListFor(model => model.ProductCategory, null, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.ProductCategory, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            @Html.LabelFor(model => model.ProductName, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-md-10">
+                                                @Html.TextBoxFor(model => model.ProductName, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.ProductName, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            @Html.LabelFor(model => model.ProductPrice, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-md-10">
+                                                @Html.TextBoxFor(model => model.ProductPrice, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.ProductPrice, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            @Html.LabelFor(model => model.ProductImage, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-md-10">
+                                                <ul class="file-upload-product">
+                                                    <li><div class="box-input-file"><input class="upload" type="file" name="file" id="file"></div></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            @Html.LabelFor(model => model.ProductDesc, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-xl-8 col-sm-7 description-sm">
+                                                @Html.TextAreaFor(model => model.ProductDesc, new { htmlAttributes = new { @id = "cke_1_contents" } })
+                                                @Html.ValidationMessageFor(model => model.ProductDesc, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="offset-xl-3 offset-sm-4">
+                                        <button type="submit" class="btn btn-primary">Add</button>
+                                        <button type="button" class="btn btn-light">Discard</button>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Container-fluid Ends-->
+</div>
+
+<!-- latest jquery-->
+<script src="~/Content/assets/js/jquery-3.3.1.min.js"></script>
+
+<!-- Bootstrap js-->
+<script src="~/Content/assets/js/bootstrap.bundle.min.js"></script>
+
+<!-- feather icon js-->
+<script src="~/Content/assets/js/icons/feather-icon/feather.min.js"></script>
+<script src="~/Content/assets/js/icons/feather-icon/feather-icon.js"></script>
+
+<!-- Sidebar jquery-->
+<script src="~/Content/assets/js/sidebar-menu.js"></script>
+
+<!-- touchspin js-->
+<script src="~/Content/assets/js/touchspin/vendors.min.js"></script>
+<script src="~/Content/assets/js/touchspin/touchspin.js"></script>
+<script src="~/Content/assets/js/touchspin/input-groups.min.js"></script>
+
+<!-- form validation js-->
+<script src="~/Content/assets/js/dashboard/form-validation-custom.js"></script>
+
+<!-- ckeditor js-->
+<script src="~/Content/assets/js/editor/ckeditor/ckeditor.js"></script>
+<script src="~/Content/assets/js/editor/ckeditor/styles.js"></script>
+<script src="~/Content/assets/js/editor/ckeditor/adapters/jquery.js"></script>
+<script src="~/Content/assets/js/editor/ckeditor/ckeditor.custom.js"></script>
+
+<!-- Zoom js-->
+<script src="~/Content/assets/js/jquery.elevatezoom.js"></script>
+<script src="~/Content/assets/js/zoom-scripts.js"></script>
+
+<!--Customizer admin-->
+<script src="~/Content/assets/js/admin-customizer.js"></script>
+
+<!-- lazyload js-->
+<script src="~/Content/assets/js/lazysizes.min.js"></script>
+
+<!--right sidebar js-->
+<script src="~/Content/assets/js/chat-menu.js"></script>
+
+<!--script admin-->
+<script src="~/Content/assets/js/admin-script.js"></script>

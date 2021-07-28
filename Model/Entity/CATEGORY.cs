@@ -9,11 +9,10 @@ namespace Model.Entity
     [Table("CATEGORY")]
     public partial class CATEGORY
     {
-        [Key]
         public int CATEGORYID { get; set; }
 
         [Required]
-        [StringLength(250)]
+        [StringLength(100)]
         public string CATEGORYNAME { get; set; }
     }
 }

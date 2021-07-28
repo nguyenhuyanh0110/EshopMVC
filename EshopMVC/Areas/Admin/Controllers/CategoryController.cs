@@ -10,7 +10,7 @@ using System.Web.Mvc;
 
 namespace EshopMVC.Areas.Admin.Controllers
 {
-    public class CategoryController : Controller
+    public class CategoryController : CheckSessionController
     {
         // GET: Admin/Category
         [HttpGet]
@@ -34,19 +34,6 @@ namespace EshopMVC.Areas.Admin.Controllers
                 var JsonCategory = Result;
                 return Json(JsonCategory, JsonRequestBehavior.AllowGet);
             }
-        }
-
-        // GET: Admin/Category/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        // GET: Admin/Category/Create
-        [HttpGet]
-        public ActionResult Create()
-        {
-            return View();
         }
 
         // POST: Admin/Category/Create
@@ -74,17 +61,11 @@ namespace EshopMVC.Areas.Admin.Controllers
                         ModelState.Clear();
                         return View("Index");
                     }
-                    else
-                    {
-                        ModelState.AddModelError("", "Đã có danh mục sản phẩm");
-                        ModelState.Clear();
-                        return View("Index");
-                    }
                 }
             }
             else
             {
-                ModelState.AddModelError("", "Thêm sản phẩm không thành công");
+                ModelState.AddModelError("", "Vui lòng nhập danh mục");
                 ModelState.Clear();
             }
             return View("Index");

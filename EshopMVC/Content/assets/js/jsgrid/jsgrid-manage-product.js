@@ -12,17 +12,18 @@
         pActionButtonCount: 5,
         loadIndication: true,
         loadIndicationDelay: 500,
-        loadMessage: "Please, wait...",
+        loadMessage: "Đang thực hiện lấy dữ liệu...",
         loadShading: true,
         deleteConfirm: function (item) {
             return "Do you really want to delete \"" + item.CATEGORYNAME + "\" ?";
         },
         controller: {
-            loadData: function () {
+            loadData: function (filter) {
                 return $.ajax({
                     type: "GET",
                     url: "/Category/GetCategory",
-                    dataType: "json"
+                    dataType: "json",
+                    data: filter
                 });
             },
             updateItem: function (item) {
@@ -50,8 +51,8 @@
             }
         },
         fields: [
-            { name: "CATEGORYID", type: "text", title: "Mã số", width: 50, editing: false },
-            { name: "CATEGORYNAME", type: "text", title: "Tên", width: 100, validate: "required" },
+            { name: "CATEGORYID", type: "text", title: "Mã số", width: 50, editing: false, readOnly: true },
+            { name: "CATEGORYNAME", type: "text", title: "Tên", width: 100, validate: "required", autosearch: true },
             { type: "control" }
         ]
     });

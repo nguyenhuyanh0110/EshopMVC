@@ -1,10 +1,8 @@
-﻿using EshopMVC.Areas.AdminArea.Data;
-using System.Web.Mvc;
-using Model;
+﻿using System.Web.Mvc;
 using EshopMVC.Areas.AdminArea.Code;
-using System.Web.Security;
 using Model.Function;
 using EshopMVC.Areas.Admin.Code;
+using EshopMVC.Areas.Admin.Data;
 
 namespace EshopMVC.Areas.Admin.Controllers
 {

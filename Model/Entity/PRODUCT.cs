@@ -11,12 +11,17 @@ namespace Model.Entity
     {
         public int PRODUCTID { get; set; }
 
-        [StringLength(1000)]
-        public string PRODUCTNAME { get; set; }
+        [StringLength(500)]
+        public string PRODUTNAME { get; set; }
 
         public int? PRODUCTPRICE { get; set; }
 
         [StringLength(250)]
-        public string PRUDUCTIMAGE { get; set; }
+        public string PRODUCTIMAGE { get; set; }
+
+        public int PRODUCTCATEGORY { get; set; }
+
+        [StringLength(1000)]
+        public string PRODUCTDESC { get; set; }
     }
 }
