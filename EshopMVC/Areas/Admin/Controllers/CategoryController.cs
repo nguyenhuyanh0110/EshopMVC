@@ -10,7 +10,7 @@ using System.Web.Mvc;
 
 namespace EshopMVC.Areas.Admin.Controllers
 {
-    public class CategoryController : CheckSessionController
+    public class CategoryController : BaseController
     {
         // GET: Admin/Category
         [HttpGet]
@@ -57,8 +57,7 @@ namespace EshopMVC.Areas.Admin.Controllers
                     var Result = category.InsertCategory(CreateCategory);
                     if(Result != null)
                     {
-                        ModelState.AddModelError("", "Thêm danh mục sản phẩm thành công");
-                        ModelState.Clear();
+                        SetAlert("Thêm danh mục sản phẩm thành công", "success");
                         return View("Index");
                     }
                 }

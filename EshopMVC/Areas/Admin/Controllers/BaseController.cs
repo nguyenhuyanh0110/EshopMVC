@@ -10,7 +10,7 @@ using System.Web.Routing;
 
 namespace EshopMVC.Areas.Admin.Controllers
 {
-    public class CheckSessionController : Controller
+    public class BaseController : Controller
     {
         //CheckSession if User not login will redirect to login
         protected override void OnActionExecuted(ActionExecutedContext filterContext)
@@ -22,6 +22,19 @@ namespace EshopMVC.Areas.Admin.Controllers
                 filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary(new { controller = "Login", action = "Index", Area = "Admin"}));
             }
             base.OnActionExecuted(filterContext);
+        }
+
+        protected void SetAlert(string message, string messagetype)
+        {
+            TempData["Alert"] = message;
+            if(messagetype == "success")
+            {
+                TempData["AlertType"] = "alert-success";
+            }
+            else if (messagetype == "error")
+            {
+                TempData["AlertType"] = "alert-danger";
+            }
         }
     }
 }

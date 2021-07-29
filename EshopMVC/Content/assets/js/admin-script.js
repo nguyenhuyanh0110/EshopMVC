@@ -100,3 +100,8 @@ jQuery('.bg-img').each(function() {
 
     el.hide();
 });
+
+$(function () {
+    $('#AlertMessage').removeClass('hide');
+    $('#AlertMessage').delay(2000).slideUp(1000);
+});
