@@ -322,11 +322,15 @@
                 </div>
             </div>
             <!-- Right sidebar Ends-->
-
             <div class="page-body">
+                @if (TempData["Alert"] != null)
+                {
+                    <div id="AlertMessage" class="alert @TempData["AlertType"] hide">
+                        @TempData["Alert"]
+                    </div>
+                }
                 @RenderBody()
             </div>
-
             <!-- footer start-->
             <footer class="footer">
                 <div class="container-fluid">
@@ -401,10 +405,7 @@
     <!--script admin-->
     <script src="~/Content/assets/js/admin-script.js"></script>
 
-    <!--JsGrid-->
-    <script src="~/Content/assets/js/jsgrid/jsgrid.min.js"></script>
-    <script src="~/Content/assets/js/jsgrid/jsgrid-manage-product.js"></script>
-    <script src="~/Content/assets/js/jsgrid/griddata-manage-product.js"></script>
+    @RenderSection("script", false)
 
 </body>
 </html>
