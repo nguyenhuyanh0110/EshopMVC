@@ -1,11 +1,6 @@
-﻿using Model.Entity;
-using System;
+﻿using Database.Entity;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web;
 
 namespace Model.Function
 {
@@ -16,6 +11,11 @@ namespace Model.Function
         public List<CATEGORY> ListCategory()
         {
             return db.CATEGORY.ToList();
+        }
+
+        public List<PRODUCT> ListProduct()
+        {
+            return db.PRODUCT.ToList();
         }
 
         public bool CheckProduct(string Product)

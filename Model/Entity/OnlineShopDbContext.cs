@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Linq;
 
-namespace Model.Entity
+namespace Database.Entity
 {
     public partial class OnlineShopDbContext : DbContext
     {
