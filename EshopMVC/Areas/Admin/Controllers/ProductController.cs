@@ -1,10 +1,7 @@
-﻿using EshopMVC.Areas.Admin.Data;
-using Model.Entity;
+﻿using Database.Entity;
+using EshopMVC.Areas.Admin.Data;
+using EshopMVC.Areas.Admin.Helper;
 using Model.Function;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
@@ -12,6 +9,15 @@ namespace EshopMVC.Areas.Admin.Controllers
 {
     public class ProductController : Controller
     {
+
+        [HttpGet]
+        public ActionResult Index()
+        {
+            var GetProduct = new ProductFunction();
+            var item = GetProduct.ListProduct();
+            return View(item);
+        }
+
         [HttpGet]
         // GET: Admin/Product/Create
         public ActionResult Create()
@@ -34,11 +40,8 @@ namespace EshopMVC.Areas.Admin.Controllers
                 }
                 else
                 {
-                    //Get posted image file
-                    string ImageName = Path.GetFileName(file.FileName);
-                    string FolderPath = Server.MapPath("~/Content/Image/" + ImageName);
-                    file.SaveAs(FolderPath);
-                    model.ProductImage = ImageName;
+                    var Image = new ImageHelper();
+                    model.ProductImage = Image.GetImage(file);
 
                     var item = new PRODUCT
                     {
@@ -69,5 +72,6 @@ namespace EshopMVC.Areas.Admin.Controllers
             var item = new ProductFunction();
             ViewBag.ProductCategory = new SelectList(item.ListCategory(), "CATEGORYID", "CATEGORYNAME", SelectCategory);
         }
+
     }
 }

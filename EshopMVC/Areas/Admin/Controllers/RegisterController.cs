@@ -1,5 +1,5 @@
-﻿using EshopMVC.Areas.Admin.Data;
-using Model.Entity;
+﻿using Database.Entity;
+using EshopMVC.Areas.Admin.Data;
 using Model.Function;
 using System.Web.Mvc;
 
