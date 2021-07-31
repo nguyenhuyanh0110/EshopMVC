@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model.Function;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,6 +13,14 @@ namespace EshopMVC.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+
+        //use for partial view
+        [ChildActionOnly]
+        public ActionResult TopMenu()
+        {
+            var Menu = new MenuFunction().ListMenu(1);
+            return PartialView(Menu);
         }
     }
 }

@@ -21,9 +21,11 @@ namespace Database.Entity
         [StringLength(100)]
         public string EMAIL { get; set; }
 
+        [Required]
         [StringLength(50)]
         public string USERNAME { get; set; }
 
+        [Required]
         [StringLength(50)]
         public string PASSWORD { get; set; }
     }

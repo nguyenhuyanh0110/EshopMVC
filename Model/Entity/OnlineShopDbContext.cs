@@ -13,11 +13,21 @@ namespace Database.Entity
         }
 
         public virtual DbSet<CATEGORY> CATEGORY { get; set; }
+        public virtual DbSet<Menu> Menu { get; set; }
+        public virtual DbSet<MenuType> MenuType { get; set; }
         public virtual DbSet<PRODUCT> PRODUCT { get; set; }
         public virtual DbSet<USERINFO> USERINFO { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Menu>()
+                .Property(e => e.MenuStatus)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<MenuType>()
+                .Property(e => e.GroupMenuName)
+                .IsUnicode(false);
+
             modelBuilder.Entity<PRODUCT>()
                 .Property(e => e.PRODUCTIMAGE)
                 .IsUnicode(false);
