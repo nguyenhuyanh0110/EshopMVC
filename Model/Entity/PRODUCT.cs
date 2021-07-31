@@ -16,7 +16,7 @@
         public string PRODUCTNAME { get; set; }
 
         [Display(Name = "Giá sản phẩm")]
-        public int? PRODUCTPRICE { get; set; }
+        public int PRODUCTPRICE { get; set; }
 
         [Display(Name = "Hình ảnh sản phẩm")]
         [StringLength(250)]
@@ -26,7 +26,6 @@
         public int PRODUCTCATEGORY { get; set; }
 
         [Display(Name = "Mô tả sản phẩm")]
-        [StringLength(1000)]
         public string PRODUCTDESC { get; set; }
     }
 }
