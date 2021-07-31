@@ -39,7 +39,8 @@
     <div class="container-fluid">
         <div class="row products-admin ratio_asos">
             @foreach (var item in Model)
-            {<div class="col-xl-3 col-sm-6">
+            {
+                <div class="col-xl-3 col-sm-6">
                     <div class="card">
                         <div class="card-body product-box">
                             <div class="img-wrapper">
@@ -48,18 +49,23 @@
                                     <div class="product-hover">
                                         <ul>
                                             <li>
-                                                <button class="btn" type="button" data-original-title="" title=""><i class="ti-pencil-alt"></i></button>
+                                                <button class="btn" type="button" onclick="location.href='@Url.Action("Edit","Product", new { id = item.PRODUCTID })'"><i class="ti-pencil-alt"></i></button>
                                             </li>
-                                            <li>
-                                                <button class="btn" type="button" data-bs-toggle="modal" data-bs-target="#exampleModalCenter" data-original-title="" title=""><i class="ti-trash"></i></button>
-                                            </li>
+                                        </ul>
+                                        <ul>
+                                            @using (Html.BeginForm("Delete", "Product", new { id = item.PRODUCTID }, FormMethod.Post))
+                                            {
+                                                <li>
+                                                    <button class="btn" type="submit" onclick="return confirm('Bạn có muốn xóa sản phẩm này không?')"><i class="ti-trash"></i></button>
+                                                </li>
+                                            }
                                         </ul>
                                     </div>
                                 </div>
                             </div>
                             <div class="product-detail">
-                                <a href="@Url.Action("Edit","Product", new { id = item.PRODUCTID })">@item.PRODUTNAME</a>
-                                <h4>@item.PRODUCTPRICE VNĐ</h4>
+                                <a href="@Url.Action("Edit","Product", new { id = item.PRODUCTID })">@item.PRODUCTNAME</a>
+                                <h4>@item.PRODUCTPRICE</h4>
                             </div>
                         </div>
                     </div>
@@ -69,3 +75,9 @@
     </div>
     <!-- Container-fluid Ends-->
 </div>
+
+@section script
+{
+
+    <script src="~/Content/assets/js/jsgrid/jsgrid-manage-product.js"></script>
+}

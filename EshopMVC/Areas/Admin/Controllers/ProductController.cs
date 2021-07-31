@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace EshopMVC.Areas.Admin.Controllers
 {
-    public class ProductController : Controller
+    public class ProductController : BaseController
     {
 
         [HttpGet]
@@ -45,26 +45,70 @@ namespace EshopMVC.Areas.Admin.Controllers
 
                     var item = new PRODUCT
                     {
-                        PRODUTNAME = model.ProductName,
+                        PRODUCTNAME = model.ProductName,
                         PRODUCTCATEGORY = model.ProductCategory,
                         PRODUCTPRICE = model.ProductPrice,
                         PRODUCTIMAGE = model.ProductImage,
                         PRODUCTDESC = model.ProductDesc
                     };
-
                     var InsertDb = function.InsertProduct(item);
                     if (InsertDb != null)
                     {
-                        ModelState.AddModelError("", "Thêm sản phẩm thành công");
+                        SetAlert("Thêm sản phẩm thành công", "success");
                         SetProductList();
-                        ModelState.Clear();
-                        return View("Create");
+                        return View(model);
                     }
                 }
             }
             ModelState.AddModelError("", "Vui lòng nhập thông tin sản phẩm");
             SetProductList();
             return View("Create");
+        }
+
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            SetProductList();
+            var function = new ProductFunction();
+            var item = function.GetProduct(id);
+            return View(item);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(PRODUCT model, int id, HttpPostedFileBase file)
+        {
+            SetProductList();
+            var function = new ProductFunction();
+            model.PRODUCTID = id;
+            if (ModelState.IsValid)
+            {
+                if(file != null)
+                {
+                    var Image = new ImageHelper();
+                    model.PRODUCTIMAGE = Image.GetImage(file);
+                }
+                var edit = function.EditProduct(model, model.PRODUCTID);
+                if (edit)
+                {
+                    SetAlert("Sửa đổi sản phẩm thành công", "success");
+                    var list = function.ListProduct();
+                    return View("Index", list);
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Sửa đổi phẩm không thành công");
+                    ModelState.Clear();
+                }
+            }
+            return View();
+        }
+
+        public ActionResult Delete(int id)
+        {
+            var delete = new ProductFunction();
+            var item = delete.DeleteProduct(id);
+            var list = delete.ListProduct();
+            return View("Index", list);
         }
 
         public void SetProductList(int? SelectCategory = null)

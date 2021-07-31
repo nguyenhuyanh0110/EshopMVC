@@ -41,7 +41,6 @@ namespace EshopMVC.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-
                 if (category.CheckCategory(model.CategoryName))
                 {
                     ModelState.AddModelError("", "Danh mục sản phẩm đã có");
@@ -51,7 +50,7 @@ namespace EshopMVC.Areas.Admin.Controllers
                     var CreateCategory = new CATEGORY();
                     CreateCategory.CATEGORYNAME = model.CategoryName;
                     var Result = category.InsertCategory(CreateCategory);
-                    if(Result != null)
+                    if(Result > 0)
                     {
                         SetAlert("Thêm danh mục sản phẩm thành công", "success");
                         return View("Index");
@@ -78,13 +77,13 @@ namespace EshopMVC.Areas.Admin.Controllers
                 var Result = category.EditCategory(model);
                 if (Result)
                 {
-                    ModelState.AddModelError("", "Thêm danh mục sản phẩm thành công");
+                    ModelState.AddModelError("", "Sửa danh mục sản phẩm thành công");
                     ModelState.Clear();
                     return Json(Result, JsonRequestBehavior.AllowGet);
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Thêm sản phẩm không thành công");
+                    ModelState.AddModelError("", "Sửa danh mục không thành công");
                     ModelState.Clear();
                 }
             }
