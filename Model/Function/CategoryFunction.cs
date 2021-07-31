@@ -21,16 +21,11 @@ namespace Model.Function
             }
         }
 
-        public CATEGORY GetCategory(int category)
-        {
-            return db.CATEGORY.SingleOrDefault(a => a.CATEGORYID == category);
-        }
-
-        public string InsertCategory(CATEGORY category)
+        public int InsertCategory(CATEGORY category)
         {
             db.CATEGORY.Add(category);
             db.SaveChanges();
-            return category.CATEGORYNAME;
+            return category.CATEGORYID;
         }
 
         public bool EditCategory(CATEGORY category)
