@@ -62,11 +62,15 @@
     <Compile Include="Entity\MenuType.cs" />
     <Compile Include="Entity\OnlineShopDbContext.cs" />
     <Compile Include="Entity\PRODUCT.cs" />
+    <Compile Include="Entity\ProductCategory.cs" />
+    <Compile Include="Entity\Slide.cs" />
     <Compile Include="Entity\USERINFO.cs" />
     <Compile Include="Function\CategoryFunction.cs" />
+    <Compile Include="Function\CategoryMenu.cs" />
     <Compile Include="Function\MenuFunction.cs" />
     <Compile Include="Function\ProductFunction.cs" />
     <Compile Include="Function\Security.cs" />
+    <Compile Include="Function\SlideFunction.cs" />
     <Compile Include="Function\UserFunction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -141,6 +141,7 @@
     <Compile Include="Areas\Admin\Controllers\LogInController.cs" />
     <Compile Include="Areas\Admin\Data\LoginModel.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProductCategoryController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -5385,6 +5386,20 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Image\9c5b5f406ba996f7cfb8.jpg" />
+    <Content Include="Content\Image\bang-diem-1.png" />
+    <Content Include="Content\Image\Bang-diem-2.png" />
+    <Content Include="Content\Image\dell-vostro-13-5301-8.jpg" />
+    <Content Include="Content\Image\Ember.png" />
+    <Content Include="Content\Image\logo.png" />
+    <Content Include="Content\Image\macbook-pro-13-m1-8gb-256gb-_2020_.jpg" />
+    <Content Include="Content\Image\maserati-road-map.jpg" />
+    <Content Include="Content\Image\Untitled.png" />
+    <Content Include="Content\Slide\daniel-korpai-vHVfpi3h5xk-unsplash.jpg" />
+    <Content Include="Content\Slide\frankie-VghbBAYqUJ0-unsplash.jpg" />
+    <Content Include="Content\Slide\harpal-singh-KuvEVL7lXYQ-unsplash.jpg" />
+    <Content Include="Content\Slide\nubelson-fernandes-Y376h7VN27c-unsplash.jpg" />
+    <Content Include="Content\Slide\omid-armin-VYt7lu6KUWE-unsplash.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -5672,11 +5687,12 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\TopMenu.cshtml" />
+    <Content Include="Views\Shared\ProductCategory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\Image\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\ProductCategory\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

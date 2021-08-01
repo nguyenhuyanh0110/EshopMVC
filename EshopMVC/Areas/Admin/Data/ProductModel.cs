@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 
 namespace EshopMVC.Areas.Admin.Data
 {
@@ -23,6 +24,7 @@ namespace EshopMVC.Areas.Admin.Data
         [Required(ErrorMessage = "Vui lòng chọn hình ảnh sản phẩm")]
         public string ProductImage { get; set; }
 
+        [AllowHtml]
         [Display(Name ="Mô tả sản phẩm")]
         public string ProductDesc { get; set; }
     }

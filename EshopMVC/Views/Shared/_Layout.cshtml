@@ -40,8 +40,6 @@
 </head>
 
 <body class="theme-color-23">
-
-
     <!-- loader start -->
     <div class="loader_skeleton">
         <header class="header-style-5">
@@ -93,7 +91,7 @@
                             <div>
                                 <form class="form_search" role="form">
                                     <input id="query search-autocomplete" type="search"
-                                           placeholder="Search any Device or Gadgets~/Content." class="nav-search nav-search-field"
+                                           placeholder="Search any Device or Gadgets" class="nav-search nav-search-field"
                                            aria-expanded="true">
                                     <button type="submit" name="nav-submit-button" class="btn-search">
                                         <i class="ti-search"></i>
@@ -156,9 +154,10 @@
                                         <li><a href="index.html">Home</a></li>
                                         <li class="mega"><a href="#">feature <div class="lable-nav">new</div></a></li>
                                         <li><a href="#">shop</a> </li>
+                                        <li><a href="#">About us</a> </li>
                                         <li><a href="#">product</a> </li>
-                                        <li><a href="#">pages</a> </li>
                                         <li><a href="#">blog</a></li>
+                                        <li><a href="#">contact</a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -342,7 +341,7 @@
                         <div>
                             <form class="form_search" role="form">
                                 <input id="query search-autocomplete" type="search"
-                                       placeholder="Search any Device or Gadgets~/Content." class="nav-search nav-search-field"
+                                       placeholder="Search any Device or Gadgets" class="nav-search nav-search-field"
                                        aria-expanded="true">
                                 <button type="submit" name="nav-submit-button" class="btn-search">
                                     <i class="ti-search"></i>
@@ -477,7 +476,37 @@
                 </div>
             </div>
         </div>
-        @{ Html.RenderAction("TopMenu", "Home");}
+        <div class="bottom-part bottom-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-3">
+                            <div class="category-menu d-none d-xl-block h-100">
+                                <div id="toggle-sidebar" class="toggle-sidebar">
+                                    <i class="fa fa-bars sidebar-bar"></i>
+                                    <h5 class="mb-0">danh mục sản phẩm</h5>
+                                </div>
+                            </div>
+                            <div class="sidenav fixed-sidebar marketplace-sidebar">
+                                <nav>
+                                    <div>
+                                        <div class="sidebar-back text-start d-block d-xl-none">
+                                            <i class="fa fa-angle-left pe-2" aria-hidden="true"></i> Back
+                                        </div>
+                                    </div>
+                                    <ul id="sub-menu" class="sm pixelstrap sm-vertical ">
+                                        @{Html.RenderAction("ProductCategory", "ProductCategory"); }
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    <div class="col-xl-9">
+                        <div class="main-nav-center">
+                            @{ Html.RenderAction("TopMenu", "Home"); }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
     <!-- header end -->
     @RenderBody()
@@ -1220,6 +1249,12 @@
     <!-- latest jquery-->
     <script src="~/Content/assets/js/jquery-3.3.1.min.js"></script>
 
+    <!-- Bootstrap js-->
+    <script src="~/Content/assets/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Bootstrap Notification js-->
+    <script src="~/Content/assets/js/bootstrap-notify.min.js"></script>
+
     <!-- slick js-->
     <script src="~/Content/assets/js/slick.js"></script>
     <script src="~/Content/assets/js/slick-animation.min.js"></script>
@@ -1236,19 +1271,14 @@
     <!-- Timer js-->
     <script src="~/Content/assets/js/timer.js"></script>
 
-    <!-- Bootstrap js-->
-    <script src="~/Content/assets/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Bootstrap Notification js-->
-    <script src="~/Content/assets/js/bootstrap-notify.min.js"></script>
-
     <!-- Theme js-->
     <script src="~/Content/assets/js/theme-setting.js"></script>
     <script src="~/Content/assets/js/script.js"></script>
     <script src="~/Content/assets/js/custom-slick-animated.js"></script>
 
 
-    <script>$(window).on('load', function () {
+    <script>
+        $(window).on('load', function () {
             setTimeout(function () {
                 $('#exampleModal').modal('show');
             }, 2500);

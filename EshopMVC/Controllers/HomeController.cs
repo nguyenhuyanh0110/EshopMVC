@@ -12,6 +12,7 @@ namespace EshopMVC.Controllers
         // GET: Home
         public ActionResult Index()
         {
+            ViewBag.Slide = new SlideFunction().ListSlide();
             return View();
         }
 
