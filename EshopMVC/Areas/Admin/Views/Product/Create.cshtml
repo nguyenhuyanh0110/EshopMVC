@@ -21,7 +21,7 @@
                 <div class="col-lg-6">
                     <ol class="breadcrumb pull-right">
                         <li class="breadcrumb-item"><a href="index.html"><i data-feather="home"></i></a></li>
-                        <li class="breadcrumb-item">Physical</li>
+                        <li class="breadcrumb-item">Product</li>
                         <li class="breadcrumb-item active">Add Product</li>
                     </ol>
                 </div>
@@ -47,7 +47,7 @@
                                         </div>
                                         <div class="col-xl-3 xl-50 col-sm-6 col-3">
                                             <ul class="file-upload-product">
-                                                <li><div class="box-input-file"><input class="upload" type="file"><i class="fa fa-plus"></i></div></li>
+                                                <li><div class="box-input-file"><input class="upload" type="file" name="file" id="file"><i class="fa fa-plus"></i></div></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -93,7 +93,7 @@
                                         <div class="form-group row">
                                             @Html.LabelFor(model => model.ProductDesc, htmlAttributes: new { @class = "control-label col-md-2" })
                                             <div class="col-xl-8 col-sm-7 description-sm">
-                                                @Html.TextAreaFor(model => model.ProductDesc, new { htmlAttributes = new { @id = "cke_1_contents" } })
+                                                @Html.TextAreaFor(model => model.ProductDesc, new { @class = "ckeditor" })
                                                 @Html.ValidationMessageFor(model => model.ProductDesc, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
@@ -113,45 +113,26 @@
     <!-- Container-fluid Ends-->
 </div>
 
-<!-- latest jquery-->
-<script src="~/Content/assets/js/jquery-3.3.1.min.js"></script>
+@section script
+{
+    <!-- touchspin js-->
+    <script src="~/Content/assets/js/touchspin/vendors.min.js"></script>
+    <script src="~/Content/assets/js/touchspin/touchspin.js"></script>
+    <script src="~/Content/assets/js/touchspin/input-groups.min.js"></script>
 
-<!-- Bootstrap js-->
-<script src="~/Content/assets/js/bootstrap.bundle.min.js"></script>
+    <!-- form validation js-->
+    <script src="~/Content/assets/js/dashboard/form-validation-custom.js"></script>
 
-<!-- feather icon js-->
-<script src="~/Content/assets/js/icons/feather-icon/feather.min.js"></script>
-<script src="~/Content/assets/js/icons/feather-icon/feather-icon.js"></script>
+    <!-- ckeditor js-->
+    <script src="~/Content/assets/js/editor/ckeditor/ckeditor.js"></script>
+    <script src="~/Content/assets/js/editor/ckeditor/styles.js"></script>
+    <script src="~/Content/assets/js/editor/ckeditor/adapters/jquery.js"></script>
+    <script src="~/Content/assets/js/editor/ckeditor/ckeditor.custom.js"></script>
 
-<!-- Sidebar jquery-->
-<script src="~/Content/assets/js/sidebar-menu.js"></script>
+    <!-- Zoom js-->
+    <script src="~/Content/assets/js/jquery.elevatezoom.js"></script>
+    <script src="~/Content/assets/js/zoom-scripts.js"></script>
+}
 
-<!-- touchspin js-->
-<script src="~/Content/assets/js/touchspin/vendors.min.js"></script>
-<script src="~/Content/assets/js/touchspin/touchspin.js"></script>
-<script src="~/Content/assets/js/touchspin/input-groups.min.js"></script>
 
-<!-- form validation js-->
-<script src="~/Content/assets/js/dashboard/form-validation-custom.js"></script>
 
-<!-- ckeditor js-->
-<script src="~/Content/assets/js/editor/ckeditor/ckeditor.js"></script>
-<script src="~/Content/assets/js/editor/ckeditor/styles.js"></script>
-<script src="~/Content/assets/js/editor/ckeditor/adapters/jquery.js"></script>
-<script src="~/Content/assets/js/editor/ckeditor/ckeditor.custom.js"></script>
-
-<!-- Zoom js-->
-<script src="~/Content/assets/js/jquery.elevatezoom.js"></script>
-<script src="~/Content/assets/js/zoom-scripts.js"></script>
-
-<!--Customizer admin-->
-<script src="~/Content/assets/js/admin-customizer.js"></script>
-
-<!-- lazyload js-->
-<script src="~/Content/assets/js/lazysizes.min.js"></script>
-
-<!--right sidebar js-->
-<script src="~/Content/assets/js/chat-menu.js"></script>
-
-<!--script admin-->
-<script src="~/Content/assets/js/admin-script.js"></script>

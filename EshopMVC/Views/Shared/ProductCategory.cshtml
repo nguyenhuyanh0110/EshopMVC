@@ -1,0 +1,16 @@
+﻿@model List<Database.Entity.ProductCategory>
+
+
+
+@foreach (var item in Model)
+{
+    <li>
+        <a href="/san-pham/@item.MetaTitle-@item.Id">@item.Name</a>
+    </li>
+}
+
+
+
+
+
+

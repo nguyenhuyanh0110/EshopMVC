@@ -13,7 +13,7 @@
                 <div class="col-lg-6">
                     <div class="page-header-left">
                         <h3>
-                            Add Products
+                            Edit Page
                             <small>Multikart Admin panel</small>
                         </h3>
                     </div>
@@ -21,8 +21,8 @@
                 <div class="col-lg-6">
                     <ol class="breadcrumb pull-right">
                         <li class="breadcrumb-item"><a href="index.html"><i data-feather="home"></i></a></li>
-                        <li class="breadcrumb-item">Physical</li>
-                        <li class="breadcrumb-item active">Add Product</li>
+                        <li class="breadcrumb-item">Product List</li>
+                        <li class="breadcrumb-item active">Edit Product</li>
                     </ol>
                 </div>
             </div>
@@ -35,7 +35,7 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h5>Add Product</h5>
+                        <h5>Edit @Model.PRODUCTNAME</h5>
                     </div>
                     <div class="card-body">
                         <div class="row product-adding">
@@ -43,7 +43,7 @@
                                 <div class="add-product">
                                     <div class="row">
                                         <div class="col-xl-9 xl-50 col-sm-6 col-9">
-                                            <img src="~/Content/assets/images/pro3/1.jpg" alt="" class="img-fluid image_zoom_1 blur-up lazyloaded">
+                                            <img src="~/Content/Image/@Url.Content(Model.PRODUCTIMAGE)" alt="" class="img-fluid image_zoom_1 blur-up lazyloaded">
                                         </div>
                                         <div class="col-xl-3 xl-50 col-sm-6 col-3">
                                             <ul class="file-upload-product">
@@ -93,7 +93,7 @@
                                         <div class="form-group row">
                                             @Html.LabelFor(model => model.PRODUCTDESC, htmlAttributes: new { @class = "control-label col-md-2" })
                                             <div class="col-xl-8 col-sm-7 description-sm">
-                                                @Html.TextAreaFor(model => model.PRODUCTDESC, new { htmlAttributes = new { @id = "cke_1_contents" } })
+                                                @Html.TextAreaFor(model => model.PRODUCTDESC, new { @class = "ckeditor" })
                                                 @Html.ValidationMessageFor(model => model.PRODUCTDESC, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
@@ -113,46 +113,24 @@
     <!-- Container-fluid Ends-->
 </div>
 
-<!-- latest jquery-->
-<script src="~/Content/assets/js/jquery-3.3.1.min.js"></script>
+@section script
+{
+    <!-- touchspin js-->
+    <script src="~/Content/assets/js/touchspin/vendors.min.js"></script>
+    <script src="~/Content/assets/js/touchspin/touchspin.js"></script>
+    <script src="~/Content/assets/js/touchspin/input-groups.min.js"></script>
 
-<!-- Bootstrap js-->
-<script src="~/Content/assets/js/bootstrap.bundle.min.js"></script>
+    <!-- form validation js-->
+    <script src="~/Content/assets/js/dashboard/form-validation-custom.js"></script>
 
-<!-- feather icon js-->
-<script src="~/Content/assets/js/icons/feather-icon/feather.min.js"></script>
-<script src="~/Content/assets/js/icons/feather-icon/feather-icon.js"></script>
+    <!-- ckeditor js-->
+    <script src="~/Content/assets/js/editor/ckeditor/ckeditor.js"></script>
+    <script src="~/Content/assets/js/editor/ckeditor/styles.js"></script>
+    <script src="~/Content/assets/js/editor/ckeditor/adapters/jquery.js"></script>
+    <script src="~/Content/assets/js/editor/ckeditor/ckeditor.custom.js"></script>
 
-<!-- Sidebar jquery-->
-<script src="~/Content/assets/js/sidebar-menu.js"></script>
-
-<!-- touchspin js-->
-<script src="~/Content/assets/js/touchspin/vendors.min.js"></script>
-<script src="~/Content/assets/js/touchspin/touchspin.js"></script>
-<script src="~/Content/assets/js/touchspin/input-groups.min.js"></script>
-
-<!-- form validation js-->
-<script src="~/Content/assets/js/dashboard/form-validation-custom.js"></script>
-
-<!-- ckeditor js-->
-<script src="~/Content/assets/js/editor/ckeditor/ckeditor.js"></script>
-<script src="~/Content/assets/js/editor/ckeditor/styles.js"></script>
-<script src="~/Content/assets/js/editor/ckeditor/adapters/jquery.js"></script>
-<script src="~/Content/assets/js/editor/ckeditor/ckeditor.custom.js"></script>
-
-<!-- Zoom js-->
-<script src="~/Content/assets/js/jquery.elevatezoom.js"></script>
-<script src="~/Content/assets/js/zoom-scripts.js"></script>
-
-<!--Customizer admin-->
-<script src="~/Content/assets/js/admin-customizer.js"></script>
-
-<!-- lazyload js-->
-<script src="~/Content/assets/js/lazysizes.min.js"></script>
-
-<!--right sidebar js-->
-<script src="~/Content/assets/js/chat-menu.js"></script>
-
-<!--script admin-->
-<script src="~/Content/assets/js/admin-script.js"></script>
+    <!-- Zoom js-->
+    <script src="~/Content/assets/js/jquery.elevatezoom.js"></script>
+    <script src="~/Content/assets/js/zoom-scripts.js"></script>
+}
 

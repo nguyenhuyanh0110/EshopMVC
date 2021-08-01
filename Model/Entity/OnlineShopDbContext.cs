@@ -17,15 +17,13 @@ namespace Database.Entity
         public virtual DbSet<MenuType> MenuType { get; set; }
         public virtual DbSet<PRODUCT> PRODUCT { get; set; }
         public virtual DbSet<USERINFO> USERINFO { get; set; }
+        public virtual DbSet<ProductCategory> ProductCategory { get; set; }
+        public virtual DbSet<Slide> Slide { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Menu>()
                 .Property(e => e.MenuStatus)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<MenuType>()
-                .Property(e => e.GroupMenuName)
                 .IsUnicode(false);
 
             modelBuilder.Entity<PRODUCT>()

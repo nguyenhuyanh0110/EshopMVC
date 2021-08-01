@@ -27,5 +27,8 @@
 
         [Display(Name = "Mô tả sản phẩm")]
         public string PRODUCTDESC { get; set; }
+
+        [Display(Name = "Thẻ Meta sản phẩm")]
+        public string PRODUCTMETATITLE { get; set; }
     }
 }
