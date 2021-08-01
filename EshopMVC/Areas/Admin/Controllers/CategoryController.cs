@@ -27,8 +27,7 @@ namespace EshopMVC.Areas.Admin.Controllers
                     a.CATEGORYID,
                     a.CATEGORYNAME
                 }).ToList();
-                var JsonCategory = Result;
-                return Json(JsonCategory, JsonRequestBehavior.AllowGet);
+                return Json(Result, JsonRequestBehavior.AllowGet);
             }
         }
 
@@ -57,11 +56,6 @@ namespace EshopMVC.Areas.Admin.Controllers
                     }
                 }
             }
-            else
-            {
-                ModelState.AddModelError("", "Vui lòng nhập danh mục");
-                ModelState.Clear();
-            }
             return View("Index");
         }
 
@@ -74,20 +68,22 @@ namespace EshopMVC.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                var Result = category.EditCategory(model);
-                if (Result)
+                if (category.CheckCategory(model.CATEGORYNAME))
                 {
-                    ModelState.AddModelError("", "Sửa danh mục sản phẩm thành công");
-                    ModelState.Clear();
-                    return Json(Result, JsonRequestBehavior.AllowGet);
+                    ModelState.AddModelError("", "Danh mục sản phẩm đã có");
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Sửa danh mục không thành công");
-                    ModelState.Clear();
+                    var Result = category.EditCategory(model);
+                    if (Result)
+                    {
+                        ModelState.AddModelError("", "Sửa danh mục sản phẩm thành công");
+                        ModelState.Clear();
+                        return Json(true, JsonRequestBehavior.AllowGet);
+                    }
                 }
             }
-            return Json(model, JsonRequestBehavior.AllowGet);
+            return Json(false, JsonRequestBehavior.AllowGet);
         }
 
         // POST: Admin/Category/Delete/5

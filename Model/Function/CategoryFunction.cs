@@ -8,6 +8,7 @@ namespace Model.Function
     {
         OnlineShopDbContext db = new OnlineShopDbContext();
 
+
         public bool CheckCategory(string CategoryName)
         {
             var category = db.CATEGORY.Where(a => a.CATEGORYNAME == CategoryName);

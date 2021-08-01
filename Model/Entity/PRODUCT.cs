@@ -5,6 +5,7 @@
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using System.Web.Mvc;
 
     [Table("PRODUCT")]
     public partial class PRODUCT
@@ -25,6 +26,7 @@
         [Display(Name = "Danh mục sản phẩm")]
         public int PRODUCTCATEGORY { get; set; }
 
+        [AllowHtml]
         [Display(Name = "Mô tả sản phẩm")]
         public string PRODUCTDESC { get; set; }
 

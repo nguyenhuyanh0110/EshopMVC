@@ -32,9 +32,15 @@
                     url: "/Category/Edit",
                     data: item,
                     dataType: "json",
-                    success: function () {
-                        alert('Cập nhật danh mục thành công');
-                        $("#basicScenario").jsGrid("loadData");
+                    success: function (item) {
+                        if (item) {
+                            alert('Cập nhật danh mục thành công');
+                            $("#basicScenario").jsGrid("loadData");
+                        }
+                        else {
+                            alert('Cập nhật danh mục không thành công');
+                            $("#basicScenario").jsGrid("loadData");
+                        }
                     }
                 });
             },
