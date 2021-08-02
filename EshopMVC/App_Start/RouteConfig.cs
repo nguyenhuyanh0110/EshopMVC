@@ -14,6 +14,18 @@ namespace EshopMVC
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "ProductCategory",
+                url: "san-pham/{Metatitle}-{id}",
+                defaults: new { controller = "ProductCategory", action = "Category", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "ProductDetail",
+                url: "chi-tiet/{Metatitle}-{id}",
+                defaults: new { controller = "ProductCategory", action = "ProductDetail", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Model.Function
+namespace Model.Function.Client
 {
     public class CategoryMenu
     {

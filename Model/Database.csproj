@@ -86,13 +86,14 @@
     <Compile Include="Entity\ProductCategory.cs" />
     <Compile Include="Entity\Slide.cs" />
     <Compile Include="Entity\USERINFO.cs" />
-    <Compile Include="Function\CategoryFunction.cs" />
-    <Compile Include="Function\CategoryMenu.cs" />
-    <Compile Include="Function\MenuFunction.cs" />
-    <Compile Include="Function\ProductFunction.cs" />
+    <Compile Include="Function\Admin\CategoryFunction.cs" />
+    <Compile Include="Function\Client\CategoryMenu.cs" />
+    <Compile Include="Function\Client\MenuFunction.cs" />
+    <Compile Include="Function\Admin\ProductFunction.cs" />
+    <Compile Include="Function\Client\ProductFunction.cs" />
     <Compile Include="Function\Security.cs" />
-    <Compile Include="Function\SlideFunction.cs" />
-    <Compile Include="Function\UserFunction.cs" />
+    <Compile Include="Function\Client\SlideFunction.cs" />
+    <Compile Include="Function\Admin\UserFunction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

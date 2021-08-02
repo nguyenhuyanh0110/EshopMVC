@@ -1,5 +1,5 @@
 ﻿using Database.Entity;
-using Model.Function;
+using Model.Function.Client;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +21,13 @@ namespace EshopMVC.Controllers
         {
             var product = new CategoryMenu().ListCategory();
             return PartialView(product);
+        }
+
+        public ActionResult ProductDetail(long id)
+        {
+            var detail = new ProductFunction().ProductDetail(id);
+            ViewBag.Related = new ProductFunction().ListNewProduct(6);
+            return View(detail);
         }
     }
 }

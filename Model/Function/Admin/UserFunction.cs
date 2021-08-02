@@ -2,7 +2,7 @@
 using System;
 using System.Linq;
 
-namespace Model.Function
+namespace Model.Function.Admin
 {
     public class UserFunction
     {

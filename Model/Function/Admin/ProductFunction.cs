@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Model.Function
+namespace Model.Function.Admin
 {
     public class ProductFunction
     {

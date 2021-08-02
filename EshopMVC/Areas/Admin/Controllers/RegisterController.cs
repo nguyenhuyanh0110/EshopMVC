@@ -1,6 +1,7 @@
 ﻿using Database.Entity;
 using EshopMVC.Areas.Admin.Data;
 using Model.Function;
+using Model.Function.Admin;
 using System.Web.Mvc;
 
 namespace EshopMVC.Areas.Admin.Controllers

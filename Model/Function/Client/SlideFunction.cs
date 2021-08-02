@@ -5,14 +5,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Model.Function
+namespace Model.Function.Client
 {
-    public class MenuFunction
+    public class SlideFunction
     {
         OnlineShopDbContext db = new OnlineShopDbContext();
-        public List<Menu> ListMenu(int MenuId)
+
+        public List<Slide> ListSlide()
         {
-            return db.Menu.Where(a => a.GroupId == MenuId).ToList();
+            return db.Slide.Where(a => a.Status == true).ToList();
         }
     }
 }

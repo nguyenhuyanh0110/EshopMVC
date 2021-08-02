@@ -65,7 +65,7 @@
                             </div>
                             <div class="product-detail">
                                 <a href="@Url.Action("Edit","Product", new { id = item.PRODUCTID })">@item.PRODUCTNAME</a>
-                                <h4>@item.PRODUCTPRICE</h4>
+                                <h4>@(item.PRODUCTPRICE.ToString("N0"))đ</h4>
                             </div>
                         </div>
                     </div>

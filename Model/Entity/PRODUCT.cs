@@ -17,7 +17,7 @@
         public string PRODUCTNAME { get; set; }
 
         [Display(Name = "Giá sản phẩm")]
-        public int PRODUCTPRICE { get; set; }
+        public decimal PRODUCTPRICE { get; set; }
 
         [Display(Name = "Hình ảnh sản phẩm")]
         [StringLength(250)]
@@ -32,5 +32,9 @@
 
         [Display(Name = "Thẻ Meta sản phẩm")]
         public string PRODUCTMETATITLE { get; set; }
+
+        public DateTime CreatedDate { get; set; }
+
+        public DateTime? TrendingDate { get; set; }
     }
 }

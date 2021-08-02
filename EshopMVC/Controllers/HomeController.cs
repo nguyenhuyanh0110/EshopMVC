@@ -1,4 +1,4 @@
-﻿using Model.Function;
+﻿using Model.Function.Client;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +13,9 @@ namespace EshopMVC.Controllers
         public ActionResult Index()
         {
             ViewBag.Slide = new SlideFunction().ListSlide();
+            var product = new ProductFunction();
+            ViewBag.NewProduct = product.ListNewProduct(6);
+            ViewBag.TrendingProduct = product.ListTrendingProduct(4);
             return View();
         }
 

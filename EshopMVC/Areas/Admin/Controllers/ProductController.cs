@@ -1,7 +1,8 @@
 ﻿using Database.Entity;
 using EshopMVC.Areas.Admin.Data;
 using EshopMVC.Areas.Admin.Helper;
-using Model.Function;
+using Model.Function.Admin;
+using System;
 using System.Web;
 using System.Web.Mvc;
 
@@ -49,7 +50,8 @@ namespace EshopMVC.Areas.Admin.Controllers
                         PRODUCTCATEGORY = model.ProductCategory,
                         PRODUCTPRICE = model.ProductPrice,
                         PRODUCTIMAGE = model.ProductImage,
-                        PRODUCTDESC = model.ProductDesc
+                        PRODUCTDESC = model.ProductDesc,
+                        CreatedDate = DateTime.Now
                     };
                     var InsertDb = function.InsertProduct(item);
                     if (InsertDb != null)
