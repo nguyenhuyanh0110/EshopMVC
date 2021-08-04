@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace Model.Function.Client
 {
-    public class CategoryMenu
+    public class CategoryList
     {
         OnlineShopDbContext db = new OnlineShopDbContext();
 
-        public List<ProductCategory> ListCategory()
+        public List<CategoryMenu> ListCategory()
         {
-            return db.ProductCategory.Where(a => a.Status == true).ToList();
+            return db.CategoryMenu.Where(a => a.Status == true).ToList();
         }
     }
 }

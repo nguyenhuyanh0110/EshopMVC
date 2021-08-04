@@ -68,11 +68,11 @@ namespace EshopMVC.Areas.Admin.Controllers
         }
 
         [HttpGet]
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int Id)
         {
             SetProductList();
             var function = new ProductFunction();
-            var item = function.GetProduct(id);
+            var item = function.GetProduct(Id);
             return View(item);
         }
 

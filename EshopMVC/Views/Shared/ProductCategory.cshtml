@@ -1,11 +1,21 @@
-﻿@model List<Database.Entity.ProductCategory>
+﻿@model List<Database.Entity.CategoryMenu>
 
 
 
-@foreach (var item in Model)
+@foreach (var item in Model.Where(a => a.ParentId == 0))
 {
+    var ChildMenu = Model.Where(a => a.ParentId == item.Id);
     <li>
         <a href="/san-pham/@item.MetaTitle-@item.Id">@item.Name</a>
+        @if (ChildMenu.Count() > 0)
+        {
+            <ul>
+                @foreach (var ChildItem in ChildMenu)
+                {
+                    <li><a href="/san-pham/@ChildItem.MetaTitle-@ChildItem.Id">@ChildItem.Name</a></li>
+                }
+            </ul>
+        }
     </li>
 }
 

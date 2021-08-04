@@ -17,8 +17,10 @@ namespace Database.Entity
         public virtual DbSet<MenuType> MenuType { get; set; }
         public virtual DbSet<PRODUCT> PRODUCT { get; set; }
         public virtual DbSet<USERINFO> USERINFO { get; set; }
-        public virtual DbSet<ProductCategory> ProductCategory { get; set; }
+        public virtual DbSet<CategoryMenu> CategoryMenu { get; set; }
         public virtual DbSet<Slide> Slide { get; set; }
+        public virtual DbSet<Order> Order { get; set; }
+        public virtual DbSet<OrderDetail> OrderDetail { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -44,6 +46,10 @@ namespace Database.Entity
 
             modelBuilder.Entity<USERINFO>()
                 .Property(e => e.PASSWORD)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Order>()
+                .Property(e => e.ShipMobile)
                 .IsUnicode(false);
         }
     }

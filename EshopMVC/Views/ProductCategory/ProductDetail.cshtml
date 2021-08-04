@@ -67,30 +67,8 @@
                                     <h6>120 ratings</h6>
                                 </div>
                                 <h3 class="price-detail">@(Model.PRODUCTPRICE.ToString("N0"))đ</h3>
-                                <div id="selectSize" class="addeffect-section product-description border-product">
-                                    <h6 class="product-title">Số lượng</h6>
-                                    <div class="qty-box">
-                                        <div class="input-group">
-                                            <span class="input-group-prepend">
-                                                <button type="button" class="btn quantity-left-minus" data-type="minus"
-                                                        data-field="">
-                                                    <i class="ti-angle-left"></i>
-                                                </button>
-                                            </span>
-                                            <input type="text" name="quantity" class="form-control input-number"
-                                                   value="1">
-                                            <span class="input-group-prepend">
-                                                <button type="button"
-                                                        class="btn quantity-right-plus" data-type="plus"
-                                                        data-field="">
-                                                    <i class="ti-angle-right"></i>
-                                                </button>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
                                 <div class="product-buttons">
-                                    <a href="javascript:void(0)" id="cartEffect"
+                                    <a href="/them-san-pham?Id=@Model.PRODUCTID&Quantity=1" id="cartEffect"
                                        class="btn btn-solid hover-solid btn-animation">
                                         <i class="fa fa-shopping-cart me-1" aria-hidden="true"></i> Thêm vào giỏ hàng
                                     </a>
@@ -225,4 +203,5 @@
 @section js {
     <!-- Zoom js-->
     <script src="~/Content/assets/js/jquery.elevatezoom.js"></script>
+    <script src="~/Content/assets/js/controller/cart-controller.js"></script>
 }

@@ -1,4 +1,6 @@
-﻿using Model.Function.Client;
+﻿using EshopMVC.Helper.Session;
+using EshopMVC.Models;
+using Model.Function.Client;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +27,20 @@ namespace EshopMVC.Controllers
         {
             var Menu = new MenuFunction().ListMenu(1);
             return PartialView(Menu);
+        }
+        
+        [ChildActionOnly]
+        public PartialViewResult HeaderCart()
+        {
+            
+            //get session cart pass to Index
+            var Cart = Session[SetSession.CartSession];
+            var List = new List<CartModel>();
+            if(Cart != null)
+            {
+                List = (List<CartModel>)Cart;
+            }
+            return PartialView(List);
         }
     }
 }

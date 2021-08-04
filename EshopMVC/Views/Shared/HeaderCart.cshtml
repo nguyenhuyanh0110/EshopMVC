@@ -1,0 +1,55 @@
+﻿@model List<EshopMVC.Models.CartModel>
+
+<li class="onhover-div mobile-cart">
+    <div>
+        <img src="~/Content/assets/images/icon/cart.png"
+             class="img-fluid blur-up lazyload" alt=""> <i class="ti-shopping-cart"></i>
+    </div>
+    <span class="cart_qty_cls">@Model.Count()</span>
+    <ul class="show-div shopping-cart">
+        @if (Model.Count() > 0)
+        {
+            decimal tongtien = 0;
+            foreach (var item in Model)
+            {
+                var dongia = item.Product.PRODUCTPRICE * item.Quantity;
+                tongtien += dongia;
+                <li>
+                    <div class="media">
+                        <img alt="" class="me-3"
+                             src="~/Content/Image/@item.Product.PRODUCTIMAGE">
+                        <div class="media-body">
+                            <a href="#">
+                                <h4>@item.Product.PRODUCTNAME</h4>
+                            </a>
+                            <h4>Số lượng: @item.Quantity</h4>
+                            <h4>Giá tiền: @item.Product.PRODUCTPRICE</h4>
+                        </div>
+                    </div>
+                    <div class="close-circle">
+                        <a href="#">
+                            <i class="fa fa-times"
+                               aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </li>
+            }
+            <li>
+                <div class="total">
+                    <h5>Tổng tiền : <span>@(tongtien.ToString("N0"))VNĐ</span></h5>
+                </div>
+            </li>
+            <li>
+                <div class="buttons">
+                    <a href="/order" class="view-cart">
+                        Xem giỏ hàng
+                    </a> <a href="#" class="checkout">Thanh toán</a>
+                </div>
+            </li>
+        }
+        else
+        {
+        <li class="alert alert-danger">Không có sản phẩm</li>
+        }
+    </ul>
+</li>

@@ -6,8 +6,8 @@
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("ProductCategory")]
-    public partial class ProductCategory
+    [Table("CategoryMenu")]
+    public partial class CategoryMenu
     {
         public int Id { get; set; }
 

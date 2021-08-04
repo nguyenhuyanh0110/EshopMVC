@@ -1,4 +1,5 @@
-﻿
+﻿@model Database.Entity.PRODUCT
+
 @{
     ViewBag.Title = "Trang chủ";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -13,30 +14,30 @@
         <div class="slider-animate home-slider">
             @foreach (var item in slide)
             {
-            <div>
-                <div class="home">
-                    <img src="~/Content/Slide/@item.ImageName" alt=""
-                         class="bg-img blur-up lazyload" />
-                    <div class="container">
-                        <div class="row">
-                            <div class="col">
-                                <div class="slider-contain px-padding">
-                                    <div>
-                                        <h4 class="animated" data-animation-in="fadeInUp">save 30%</h4>
-                                        <h1 class="animated" data-animation-in="fadeInUp" data-delay-in="0.3">
-                                            special price
-                                        </h1><a href="#" class="btn btn-solid animated"
-                                                data-animation-in="fadeInUp" data-delay-in="0.5">
-                                            shop
-                                            now
-                                        </a>
+                <div>
+                    <div class="home">
+                        <img src="~/Content/Slide/@item.ImageName" alt=""
+                             class="bg-img blur-up lazyload" />
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="slider-contain px-padding">
+                                        <div>
+                                            <h4 class="animated" data-animation-in="fadeInUp">save 30%</h4>
+                                            <h1 class="animated" data-animation-in="fadeInUp" data-delay-in="0.3">
+                                                special price
+                                            </h1><a href="#" class="btn btn-solid animated"
+                                                    data-animation-in="fadeInUp" data-delay-in="0.5">
+                                                shop
+                                                now
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
             }
         </div>
     </div>
@@ -170,17 +171,11 @@
                                     </a>
                                 </div>
                                 <div class="cart-box style-1 rounded-0">
-                                    <button onclick="openCart()" title="Add to cart">
+                                    <a href="@Url.Action("AddItem","Cart", new { Id = item.PRODUCTID, Quantity = 1 })" title="Add to cart">
                                         <i class="ti-shopping-cart"></i>
-                                    </button>
+                                    </a>
                                     <a href="javascript:void(0)" title="Add to Wishlist">
                                         <i class="ti-heart"
-                                           aria-hidden="true"></i>
-                                    </a>
-                                    <a href="#" data-bs-toggle="modal" data-bs-target="#quick-view"
-                                       title="Quick View"><i class="ti-search" aria-hidden="true"></i></a>
-                                    <a href="compare.html" title="Compare">
-                                        <i class="ti-reload"
                                            aria-hidden="true"></i>
                                     </a>
                                 </div>
@@ -285,7 +280,6 @@
     </div>
 </section>
 <!-- banner section end -->
-
 <!-- slider and product -->
 <section class="container">
     <div class="row">
@@ -350,12 +344,6 @@
                                                     <i class="ti-heart"
                                                        aria-hidden="true"></i>
                                                 </a>
-                                                <a href="#" data-bs-toggle="modal" data-bs-target="#quick-view"
-                                                   title="Quick View"><i class="ti-search" aria-hidden="true"></i></a>
-                                                <a href="compare.html" title="Compare">
-                                                    <i class="ti-reload"
-                                                       aria-hidden="true"></i>
-                                                </a>
                                             </div>
                                         </div>
                                         <div class="product-detail">
@@ -389,12 +377,6 @@
                                                     <i class="ti-heart"
                                                        aria-hidden="true"></i>
                                                 </a>
-                                                <a href="#" data-bs-toggle="modal" data-bs-target="#quick-view"
-                                                   title="Quick View"><i class="ti-search" aria-hidden="true"></i></a>
-                                                <a href="compare.html" title="Compare">
-                                                    <i class="ti-reload"
-                                                       aria-hidden="true"></i>
-                                                </a>
                                             </div>
                                         </div>
                                         <div class="product-detail">
@@ -414,7 +396,6 @@
     </div>
 </section>
 <!-- slider and product -->
-
 <!-- banner section start -->
 <section class="container">
     <div class="full-banner small-banner text-center p-center">
@@ -432,7 +413,6 @@
     </div>
 </section>
 <!-- banner section end -->
-
 <!-- collection banner -->
 <section class="ratio2_1 banner-padding">
     <div class="container">
@@ -473,7 +453,6 @@
     </div>
 </section>
 <!-- collection banner end -->
-
 <!-- Tab product -->
 <section class="ratio_square bg-title section-b-space  wo-bg">
     <div class="container">

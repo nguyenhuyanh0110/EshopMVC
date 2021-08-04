@@ -19,7 +19,7 @@ namespace EshopMVC.Controllers
         [ChildActionOnly]
         public ActionResult ProductCategory()
         {
-            var product = new CategoryMenu().ListCategory();
+            var product = new CategoryList().ListCategory();
             return PartialView(product);
         }
 
@@ -28,6 +28,15 @@ namespace EshopMVC.Controllers
             var detail = new ProductFunction().ProductDetail(id);
             ViewBag.Related = new ProductFunction().ListNewProduct(6);
             return View(detail);
+        }
+
+        public ActionResult ListProduct(long id)
+        {
+            var ListProduct = new ProductFunction().ProductDetail(id);
+            ViewBag.CategoryName = new ProductFunction().Breakcrumb(id);
+            ViewBag.Option = new ProductFunction().ListCategoryOption(id);
+            ViewBag.NewProduct = new ProductFunction().ListNewProduct(4);
+            return View(ListProduct);
         }
     }
 }

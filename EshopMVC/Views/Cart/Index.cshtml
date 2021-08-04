@@ -1,0 +1,124 @@
+﻿@model List<EshopMVC.Models.CartModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- breadcrumb start -->
+<div class="breadcrumb-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="page-title">
+                    <h2>cart</h2>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <nav aria-label="breadcrumb" class="theme-breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item active">cart</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- breadcrumb End -->
+<!--section start-->
+<section class="cart-section section-b-space">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="cart_counter">
+                    <div class="countdownholder">
+                        Your cart will be expired in<span id="timer"></span> minutes!
+                    </div>
+                    <a href="checkout.html" class="cart_checkout btn btn-solid btn-xs">check out</a>
+                </div>
+            </div>
+            <div class="col-sm-12 table-responsive-xs">
+                @if (Model.Count > 0)
+                {
+                    decimal total = 0;
+                    <table class="table cart-table">
+                        <thead>
+                            <tr class="table-head">
+                                <th scope="col">Hình ảnh</th>
+                                <th scope="col">Tên sản phẩm</th>
+                                <th scope="col">Số lượng</th>
+                                <th scope="col">Thao tác</th>
+                                <th scope="col">Giá tiền</th>
+                            </tr>
+                        </thead>
+                        @foreach (var item in Model)
+                        {
+                            var dongia = item.Product.PRODUCTPRICE * item.Quantity;
+                            total += dongia;
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <a href="#"><img src="~/Content/Image/@item.Product.PRODUCTIMAGE" alt=""></a>
+                                    </td>
+                                    <td>
+                                        <a href="#">@item.Product.PRODUCTNAME</a>
+                                        <div class="mobile-cart-content row">
+                                            <div class="col">
+                                                <div class="qty-box">
+                                                    <div class="input-group">
+                                                        <input type="text" name="quantity" class="form-control input-number"
+                                                               value="@item.Quantity">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <h2 class="td-color">@(item.Product.PRODUCTPRICE.ToString("N0"))</h2>
+                                            </div>
+                                            <div class="col">
+                                                <h2 class="td-color">
+                                                    <a href="#" class="icon"><i class="ti-close"></i></a>
+                                                </h2>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="qty-box">
+                                            <div class="input-group">
+                                                <input type="number" name="quantity" class="form-control input-number txtQuantity"
+                                                       value="@item.Quantity" data-id="@item.Product.PRODUCTID">
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><a href="#" class="icon-delete" data-id="@item.Product.PRODUCTID"><i class="ti-close"></i></a></td>
+                                    <td>@(item.Product.PRODUCTPRICE.ToString("N0"))VNĐ</td>
+                                </tr>
+                            </tbody>
+                        }
+                        <tfoot class="table-responsive-md">
+                            <tr>
+                                <td>total price :@(total.ToString("N0"))VNĐ</td>
+                                <td>
+                                    <h2></h2>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                }
+            </div>
+        </div>
+        <div class="row cart-buttons">
+            <div class="col-6"><button id="btnContinue" class="btn btn-solid">Tiếp tục mua sắm</button></div>
+            <div class="col-6"><button id="btnCheckOut" class="btn btn-solid">Thanh toán</button></div>
+        </div>
+    </div>
+</section>
+<!--section end-->
+@section js
+{
+    <!-- timer js-->
+    <script src="~/Content/assets/js/timer1.js"></script>
+
+    <!--Button js-->
+    <script src="~/Content/assets/js/controller/cart-controller.js"></script>
+}
