@@ -25,7 +25,7 @@
                 type: 'POST',
                 success: function (res) {
                     if (res.status == true) {
-                        window.location.href="/order"
+                        $('.footer').load('/order #totalPrice')
                     }
                 }
             })
