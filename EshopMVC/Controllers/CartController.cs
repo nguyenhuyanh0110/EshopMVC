@@ -88,5 +88,10 @@ namespace EshopMVC.Controllers
             Session[SetSession.CartSession] = session;
             return Json(new { status = true });
         }
+
+        public ActionResult Checkout()
+        {
+            return View();
+        }
     }
 }
