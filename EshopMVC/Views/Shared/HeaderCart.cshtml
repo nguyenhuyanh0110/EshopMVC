@@ -25,12 +25,12 @@
                                 <h4>@item.Product.PRODUCTNAME</h4>
                             </a>
                             <h4>Số lượng: @item.Quantity</h4>
-                            <h4>Giá tiền: @item.Product.PRODUCTPRICE</h4>
+                            <h4>Giá tiền: @(item.Product.PRODUCTPRICE.ToString("N0"))</h4>
                         </div>
                     </div>
                     <div class="close-circle">
                         <a href="#">
-                            <i class="fa fa-times"
+                            <i id="btnCheckOut" class="fa fa-times"
                                aria-hidden="true"></i>
                         </a>
                     </div>
@@ -38,20 +38,25 @@
             }
             <li>
                 <div class="total">
-                    <h5>Tổng tiền : <span>@(tongtien.ToString("N0"))VNĐ</span></h5>
+                    <h5>Tổng tiền : <span>@(tongtien.ToString("N0"))$</span></h5>
                 </div>
             </li>
             <li>
                 <div class="buttons">
                     <a href="/order" class="view-cart">
                         Xem giỏ hàng
-                    </a> <a href="#" class="checkout">Thanh toán</a>
+                    </a> <a href="/thanh-toan" class="checkout">Thanh toán</a>
                 </div>
             </li>
         }
         else
         {
-        <li class="alert alert-danger">Không có sản phẩm</li>
+            <li class="alert alert-danger">Không có sản phẩm</li>
         }
     </ul>
 </li>
+
+@section js {
+
+    <script src="~/Content/assets/js/controller/cart-controller.js"></script>
+}

@@ -84,3 +84,7 @@ D:\Project\.Net\EshopMVC\EshopMVC\obj\Debug\EshopMVC.csproj.CopyComplete
 D:\Project\.Net\EshopMVC\EshopMVC\obj\Debug\EshopMVC.dll
 D:\Project\.Net\EshopMVC\EshopMVC\obj\Debug\EshopMVC.pdb
 D:\Project\.Net\EshopMVC\EshopMVC\bin\Newtonsoft.Json.xml
+D:\Project\.Net\EshopMVC\EshopMVC\bin\PayPal.dll
+D:\Project\.Net\EshopMVC\EshopMVC\bin\PayPal.xml
+D:\Project\.Net\EshopMVC\EshopMVC\bin\Email.dll
+D:\Project\.Net\EshopMVC\EshopMVC\bin\Email.pdb

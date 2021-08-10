@@ -12,7 +12,7 @@
     {
         public int Id { get; set; }
 
-        public DateTime CreatedDate { get; set; }
+        public DateTime? CreatedDate { get; set; }
 
         public string ShipName { get; set; }
 
@@ -22,7 +22,7 @@
 
         public string ShipEmail { get; set; }
 
-        public bool Status { get; set; }
+        public bool? Status { get; set; }
 
     }
 }

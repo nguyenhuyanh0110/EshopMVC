@@ -1,0 +1,6 @@
+D:\Project\.Net\EshopMVC\Email\bin\Debug\Email.dll
+D:\Project\.Net\EshopMVC\Email\bin\Debug\Email.pdb
+D:\Project\.Net\EshopMVC\Email\obj\Debug\Email.csproj.AssemblyReference.cache
+D:\Project\.Net\EshopMVC\Email\obj\Debug\Email.csproj.CoreCompileInputs.cache
+D:\Project\.Net\EshopMVC\Email\obj\Debug\Email.dll
+D:\Project\.Net\EshopMVC\Email\obj\Debug\Email.pdb

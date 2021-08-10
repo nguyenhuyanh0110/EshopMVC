@@ -91,13 +91,13 @@
                                         </div>
                                     </td>
                                     <td><a href="#" class="icon-delete" data-id="@item.Product.PRODUCTID"><i class="ti-close"></i></a></td>
-                                    <td>@(item.Product.PRODUCTPRICE.ToString("N0"))VNĐ</td>
+                                    <td>@(item.Product.PRODUCTPRICE.ToString("N0"))$</td>
                                 </tr>
                             </tbody>
                         }
                         <tfoot class="table-responsive-md">
                             <tr class="footer">
-                                <td id="totalPrice">total price :@(total.ToString("N0"))VNĐ</td>
+                                <td id="totalPrice">total price :@(total.ToString("N0"))$</td>
                             </tr>
                         </tfoot>
                     </table>
@@ -106,7 +106,7 @@
         </div>
         <div class="row cart-buttons">
             <div class="col-6"><button id="btnContinue" class="btn btn-solid">Tiếp tục mua sắm</button></div>
-            <div class="col-6"><button id="btnCheckOut" class="btn btn-solid">Thanh toán</button></div>
+            <div class="col-6"><button id="btnCheckout" class="btn btn-solid">Thanh toán</button></div>
         </div>
     </div>
 </section>

@@ -11,7 +11,6 @@ D:\Project\.Net\EshopMVC\Model\obj\Debug\Database.csproj.CoreCompileInputs.cache
 D:\Project\.Net\EshopMVC\Model\obj\Debug\Database.csproj.CopyComplete
 D:\Project\.Net\EshopMVC\Model\obj\Debug\Model.dll
 D:\Project\.Net\EshopMVC\Model\obj\Debug\Model.pdb
-D:\Project\.Net\EshopMVC\Model\obj\Debug\Database.csproj.AssemblyReference.cache
 D:\Project\.Net\EshopMVC\Model\bin\Debug\Microsoft.Web.Infrastructure.dll
 D:\Project\.Net\EshopMVC\Model\bin\Debug\System.Web.Helpers.dll
 D:\Project\.Net\EshopMVC\Model\bin\Debug\System.Web.Mvc.dll
@@ -25,3 +24,4 @@ D:\Project\.Net\EshopMVC\Model\bin\Debug\System.Web.Razor.xml
 D:\Project\.Net\EshopMVC\Model\bin\Debug\System.Web.WebPages.xml
 D:\Project\.Net\EshopMVC\Model\bin\Debug\System.Web.WebPages.Deployment.xml
 D:\Project\.Net\EshopMVC\Model\bin\Debug\System.Web.WebPages.Razor.xml
+D:\Project\.Net\EshopMVC\Model\obj\Debug\Database.csproj.AssemblyReference.cache

@@ -8,5 +8,7 @@ namespace EshopMVC.Helper.Session
     public class SetSession
     {
         public static string CartSession = "CartSession";
+
+        public static string OrderSession = "OrderSession";
     }
 }

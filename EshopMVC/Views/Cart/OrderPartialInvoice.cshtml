@@ -1,0 +1,42 @@
+﻿@model List<EshopMVC.Models.CartModel>
+
+@if (Model.Count() > 0)
+{
+    decimal total = 0;
+    <table class="table table-borderless mb-0">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Thông tin sản phẩm</th>
+                <th scope="col">Giá tiền</th>
+                <th scope="col">Số lượng</th>
+                <th scope="col">Đơn giá</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                var dongia = item.Product.PRODUCTPRICE * item.Quantity;
+                total += dongia;
+                <tr>
+                    <th scope="row">1</th>
+                    <td>@item.Product.PRODUCTNAME</td>
+                    <td>@(item.Product.PRODUCTPRICE.ToString("N0"))</td>
+                    <td>@item.Quantity</td>
+                    <td>@dongia.ToString("N0") VNĐ</td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="2"></td>
+                <td class="font-bold text-dark" colspan="2">Tổng tiền</td>
+                <td class="font-bold text-theme">@total.ToString("N0") VNĐ</td>
+            </tr>
+        </tfoot>
+    </table>
+}
+else
+{
+    <ul><li class="alert alert-danger">Không có sản phẩm</li></ul>
+}

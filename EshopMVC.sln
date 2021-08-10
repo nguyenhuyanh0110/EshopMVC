@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EshopMVC", "EshopMVC\EshopM
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Database", "Model\Database.csproj", "{856F1C4D-7386-49A1-A2B4-0AD16C4760B6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Email", "Email\Email.csproj", "{2B968ADA-FAEF-4A3C-A58E-C647BBFA72DF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{856F1C4D-7386-49A1-A2B4-0AD16C4760B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{856F1C4D-7386-49A1-A2B4-0AD16C4760B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{856F1C4D-7386-49A1-A2B4-0AD16C4760B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B968ADA-FAEF-4A3C-A58E-C647BBFA72DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B968ADA-FAEF-4A3C-A58E-C647BBFA72DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B968ADA-FAEF-4A3C-A58E-C647BBFA72DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B968ADA-FAEF-4A3C-A58E-C647BBFA72DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

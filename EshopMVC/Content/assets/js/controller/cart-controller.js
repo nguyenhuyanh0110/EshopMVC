@@ -7,6 +7,10 @@
             window.location.href = "/";
         });
 
+        $('#btnCheckout').off('click').on('click', function () {
+            window.location.href = "/thanh-toan";
+        });
+
         $('.input-number').off('click').on('click', function () {
             var quantity = $('.txtQuantity');
             var CartList = [];
@@ -37,9 +41,9 @@
                 url: '/Cart/DeleteItem',
                 type: 'POST',
                 dataType: 'json',
-                success: function(res) {
+                success: function (res) {
                     if (res.status = true) {
-                        window.location.href = "/";
+                        window.location.href = "/order";
                     }
                 }
             })

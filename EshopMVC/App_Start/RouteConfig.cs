@@ -38,6 +38,24 @@ namespace EshopMVC
             );
 
             routes.MapRoute(
+                name: "CheckOut",
+                url: "thanh-toan",
+                defaults: new { controller = "Cart", action = "Checkout", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "Invoice",
+                url: "hoa-don",
+                defaults: new { controller = "Cart", action = "Invoice", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "404",
+                url: "error",
+                defaults: new { controller = "NotFound", action = "Index", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }

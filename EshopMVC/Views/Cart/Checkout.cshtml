@@ -1,8 +1,117 @@
-﻿
+﻿@model List<EshopMVC.Models.CartModel>
+
 @{
     ViewBag.Title = "Checkout";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Checkout</h2>
+<!-- breadcrumb start -->
+<div class="breadcrumb-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="page-title">
+                    <h2>Check-out</h2>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <nav aria-label="breadcrumb" class="theme-breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Thanh toán</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- breadcrumb End -->
+<!-- section start -->
+<section class="section-b-space">
+    <div class="container">
+        <div class="checkout-page">
+            <div class="checkout-form">
+                @using (Html.BeginForm("Checkout", "Cart", FormMethod.Post))
+                {
+                    <form>
+                        <div class="row">
+                            <div class="col-lg-6 col-sm-12 col-xs-12">
 
+                                <div class="checkout-title">
+                                    <h3>Billing Details</h3>
+                                </div>
+                                <div class="row check-out">
+                                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                        <div class="field-label">Họ tên</div>
+                                        <input type="text" name="ShipName" value="" placeholder="">
+                                    </div>
+                                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                        <div class="field-label">Số điện thoại</div>
+                                        <input type="text" name="ShipMobile" value="" placeholder="">
+                                    </div>
+                                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                        <div class="field-label">Địa chỉ</div>
+                                        <input type="text" name="ShipAddress" value="" placeholder="">
+                                    </div>
+                                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                        <div class="field-label">Email</div>
+                                        <input type="text" name="ShipEmail" value="" placeholder="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-sm-12 col-xs-12">
+                                <div class="checkout-details">
+                                    @if (Model.Count() > 0)
+                                    {
+                                        decimal subtotal = 0;
+                                        <div class="order-box">
+                                            <div class="title-box">
+                                                <div>Sản phẩm <span>Đơn giá</span></div>
+                                            </div>
+                                            @foreach (var item in Model)
+                                            {
+                                                var dongia = item.Product.PRODUCTPRICE * item.Quantity;
+                                                subtotal += dongia;
+                                                <ul class="qty">
+                                                    <li>@item.Product.PRODUCTNAME × @item.Quantity <span>@(item.Product.PRODUCTPRICE.ToString("N0")) $</span></li>
+                                                </ul>
+                                            }
+                                            <ul class="total">
+                                                <li id="totalHolder">Tổng tiền <span id="amount" class="count" data-total="@subtotal">@subtotal.ToString("N0") $</span></li>
+                                            </ul>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <ul><li class="alert alert-danger">Không có sản phẩm</li></ul>
+                                    }
+                                    <div class="payment-box">
+                                        <div class="upper-box">
+                                            <div class="payment-options">
+                                                <a href="@Url.Action("PaymentWithPaypal","Cart",null)">
+                                                    <span class="image">
+                                                        <img src="~/Content/assets/images/paypal.png"
+                                                             alt="">
+                                                    </span>
+                                                </a>
+                                                <div class="text-end">
+                                                    <button type="submit" class="btn-solid btn">Đặt hàng</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+<!-- section end -->
+
+@section js
+{
+    <script src="~/Content/assets/js/controller/cart-controller.js"></script>
+}
