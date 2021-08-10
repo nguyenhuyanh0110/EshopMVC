@@ -21,6 +21,8 @@ namespace Database.Entity
         public virtual DbSet<Slide> Slide { get; set; }
         public virtual DbSet<Order> Order { get; set; }
         public virtual DbSet<OrderDetail> OrderDetail { get; set; }
+        public virtual DbSet<Contact> Contact { get; set; }
+        public virtual DbSet<Feedback> Feedback { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -50,6 +52,12 @@ namespace Database.Entity
 
             modelBuilder.Entity<Order>()
                 .Property(e => e.ShipMobile)
+                .IsUnicode(false);
+            modelBuilder.Entity<Feedback>()
+                .Property(e => e.Phone)
+                .IsUnicode(false);
+            modelBuilder.Entity<Feedback>()
+                .Property(e => e.Email)
                 .IsUnicode(false);
         }
     }
