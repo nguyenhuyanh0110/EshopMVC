@@ -33,12 +33,14 @@ namespace EshopMVC.Areas.Admin.Controllers
                 else
                 {
                     //add to table UserInfo by Model view
-                    var CreateUser = new USERINFO();
-                    CreateUser.USERNAME = model.UserName;
-                    CreateUser.PASSWORD = Security.Md5Hash(model.Password);
-                    CreateUser.HOTEN = model.HoTen;
-                    CreateUser.SODT = model.Sdt;
-                    CreateUser.EMAIL = model.Email;
+                    var CreateUser = new USERINFO
+                    {
+                        USERNAME = model.UserName,
+                        PASSWORD = Security.Md5Hash(model.Password),
+                        HOTEN = model.HoTen,
+                        SODT = model.Sdt,
+                        EMAIL = model.Email
+                    };
                     var Result = user.InsertUser(CreateUser);
                     if (Result != null)
                     {

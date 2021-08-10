@@ -79,6 +79,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entity\CATEGORY.cs" />
+    <Compile Include="Entity\Contact.cs" />
+    <Compile Include="Entity\Feedback.cs" />
     <Compile Include="Entity\Menu.cs" />
     <Compile Include="Entity\MenuType.cs" />
     <Compile Include="Entity\OnlineShopDbContext.cs" />
@@ -90,6 +92,7 @@
     <Compile Include="Entity\USERINFO.cs" />
     <Compile Include="Function\Admin\CategoryFunction.cs" />
     <Compile Include="Function\Client\CategoryList.cs" />
+    <Compile Include="Function\Client\ContactFunction.cs" />
     <Compile Include="Function\Client\MenuFunction.cs" />
     <Compile Include="Function\Admin\ProductFunction.cs" />
     <Compile Include="Function\Client\OrderFunction.cs" />

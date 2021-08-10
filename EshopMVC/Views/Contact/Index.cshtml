@@ -1,0 +1,138 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    #canvasMap {
+        height: 100%;
+    }
+
+    html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+</style>
+
+<!-- breadcrumb start -->
+<div class="breadcrumb-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="page-title">
+                    <h2>contact</h2>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <nav aria-label="breadcrumb" class="theme-breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        <li class="breadcrumb-item active">contact</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- breadcrumb End -->
+<!--section start-->
+<section class="contact-page section-b-space">
+    <div class="container">
+        <div class="row section-b-space">
+            <div class="col-lg-7 map">
+                <div id="canvasMap"></div>
+            </div>
+            <div class="col-lg-5">
+                <div class="contact-right">
+                    <ul>
+                        <li>
+                            <div class="contact-icon">
+                                <img src="~/Content/assets/images/icon/phone.png"
+                                     alt="Generic placeholder image">
+                                <h6>Số điện thoại</h6>
+                            </div>
+                            <div class="media-body">
+                                <p>09-123-456-78</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="contact-icon">
+                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                <h6>Địa chỉ</h6>
+                            </div>
+                            <div class="media-body">
+                                <p>458/3F Nguyễn Hữu Thọ</p>
+                                <p>Phường Tân Hưng, Quận 7, Tp. Hồ Chí Minh</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="contact-icon">
+                                <img src="~/Content/assets/images/icon/email.png"
+                                     alt="Generic placeholder image">
+                                <h6>Email</h6>
+                            </div>
+                            <div class="media-body">
+                                <p>Support@123.com</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <form class="theme-form">
+                    <div class="form-row row">
+                        <div class="col-md-6">
+                            <label for="name">Họ tên</label>
+                            <input type="text" class="form-control" id="txtname" placeholder="Enter Your name"
+                                   required="">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="review">Số điện thoại</label>
+                            <input type="text" class="form-control" id="txtphone" placeholder="Enter your number"
+                                   required="">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="email">Email</label>
+                            <input type="text" class="form-control" id="txtemail" placeholder="Email" required="">
+                        </div>
+                        <div class="col-md-12">
+                            <label for="review">Thông tin cần liên hệ</label>
+                            <textarea class="form-control" placeholder="Write Your Message"
+                                      id="txtmessage" rows="6"></textarea>
+                        </div>
+                        <div class="col-md-12">
+                            <button id="send-contact" class="btn btn-solid" type="submit">Gửi đi</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Section ends-->
+
+@section js{
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiZ4drpAB7tfKRvBwuX-ni0GoQ2fzUCsE&callback=initMap"></script>
+    <script>
+        let map;
+        //10.74331504639307, 106.7014810258406
+        function initMap() {
+            const position = { lat: 10.74331504639307, lng: 106.7014810258406 }
+            map = new google.maps.Map(document.getElementById('canvasMap'), {
+                center: position,
+                zoom: 18,
+            });
+
+            new google.maps.Marker({
+                position: position,
+                map,
+                title: 'EshopMVC'
+            })
+        }
+    </script>
+    <script src="~/Content/assets/js/controller/contact-controller.js"></script>
+}

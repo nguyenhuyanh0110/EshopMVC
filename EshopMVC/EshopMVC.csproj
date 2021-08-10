@@ -144,6 +144,7 @@
     <Compile Include="Areas\Admin\Controllers\LogInController.cs" />
     <Compile Include="Areas\Admin\Data\LoginModel.cs" />
     <Compile Include="Controllers\CartController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NotFoundController.cs" />
     <Compile Include="Controllers\ProductCategoryController.cs" />
@@ -4574,6 +4575,7 @@
     <Content Include="Content\assets\js\clipboard\clipboard.min.js" />
     <Content Include="Content\assets\js\color-setting.js" />
     <Content Include="Content\assets\js\controller\cart-controller.js" />
+    <Content Include="Content\assets\js\controller\contact-controller.js" />
     <Content Include="Content\assets\js\counter\counter-custom.js" />
     <Content Include="Content\assets\js\counter\jquery.counterup.min.js" />
     <Content Include="Content\assets\js\counter\jquery.waypoints.min.js" />
@@ -5710,6 +5712,7 @@
     <Content Include="Views\NotFound\Index.cshtml" />
     <Content Include="Views\Cart\Success.cshtml" />
     <Content Include="Views\Cart\Failure.cshtml" />
+    <Content Include="Views\Contact\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
