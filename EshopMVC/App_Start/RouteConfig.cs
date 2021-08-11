@@ -13,6 +13,10 @@ namespace EshopMVC
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            //ignore root captcha
+            routes.IgnoreRoute("{*botdetect}",
+   new { botdetect = @"(.*)BotDetectCaptcha\.ashx" });
+
             routes.MapRoute(
                 name: "ProductCategory",
                 url: "san-pham/{Metatitle}-{id}",
@@ -59,6 +63,12 @@ namespace EshopMVC
                 name: "Contact",
                 url: "lien-he",
                 defaults: new { controller = "Contact", action = "Index", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "Register",
+                url: "dang-ky",
+                defaults: new { controller = "Register", action = "Index", id = UrlParameter.Optional }
             );
 
             routes.MapRoute(

@@ -97,6 +97,7 @@
     <Compile Include="Function\Admin\ProductFunction.cs" />
     <Compile Include="Function\Client\OrderFunction.cs" />
     <Compile Include="Function\Client\ProductFunction.cs" />
+    <Compile Include="Function\Client\UserClientFunction.cs" />
     <Compile Include="Function\Security.cs" />
     <Compile Include="Function\Client\SlideFunction.cs" />
     <Compile Include="Function\Admin\UserFunction.cs" />

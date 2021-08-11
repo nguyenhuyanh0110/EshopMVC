@@ -173,9 +173,6 @@
                                     <li class="nav-item">
                                         <a class="nav-link active" id="top-profile-tab" data-bs-toggle="tab" href="#top-profile" role="tab" aria-controls="top-profile" aria-selected="true"><span class="icon-user me-2"></span>Login</a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="@Url.Action("Index","Register")" role="tab" aria-controls="top-contact" aria-selected="false"><span class="icon-unlock me-2"></span>Register</a>
-                                    </li>
                                 </ul>
                                 <div id="top-profile" role="tabpanel" aria-labelledby="top-profile-tab">
                                     @using (Html.BeginForm("Login", "LogIn", FormMethod.Post))
@@ -189,26 +186,10 @@
                                         <div class="form-group">
                                             @Html.TextBoxFor(Model => Model.Password, new { @class = "form-control", @placeholder = "Password", @type = "password" })
                                         </div>
-                                        <div class="form-terms">
-                                            <div class="form-check mesm-2">
-                                                <input type="checkbox" class="form-check-input" id="customControlAutosizing">
-                                                <label class="form-check-label ps-2" for="customControlAutosizing">Remember me</label>
-                                                <a href="#" class="btn btn-default forgot-pass">lost your password</a>
-                                            </div>
-                                        </div>
                                         <div class="form-button">
                                             <button type="submit" class="btn btn-primary" , id="btnsubmit">
                                                 Sign in
                                             </button>
-                                        </div>
-                                        <div class="form-footer">
-                                            <span>Or Login up with social platforms</span>
-                                            <ul class="social">
-                                                <li><a class="ti-facebook" href=""></a></li>
-                                                <li><a class="ti-twitter" href=""></a></li>
-                                                <li><a class="ti-instagram" href=""></a></li>
-                                                <li><a class="ti-pinterest" href=""></a></li>
-                                            </ul>
                                         </div>
                                     }
                                 </div>
@@ -216,7 +197,7 @@
                         </div>
                     </div>
                 </div>
-                <a href="index.html" class="btn btn-primary back-btn"><i data-feather="arrow-left"></i>back</a>
+                <a href="/" class="btn btn-primary back-btn"><i data-feather="arrow-left"></i>back</a>
             </div>
         </div>
     </div>

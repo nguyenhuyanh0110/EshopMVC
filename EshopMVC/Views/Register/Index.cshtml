@@ -1,0 +1,101 @@
+﻿@model EshopMVC.Models.Register
+<!--Initialize captcha-->
+@using BotDetect.Web.Mvc;
+<link href="@BotDetect.Web.CaptchaUrls.Absolute.LayoutStyleSheetUrl"
+      rel="stylesheet" type="text/css" />
+@{
+    MvcCaptcha RegisterCaptcha = new MvcCaptcha("RegisterCaptcha");
+    RegisterCaptcha.UserInputID = "CaptchaCode";
+}
+<!---->
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<!-- breadcrumb start -->
+<div class="breadcrumb-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="page-title">
+                    <h2>create account</h2>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <nav aria-label="breadcrumb" class="theme-breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Tạo tài khoản</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- breadcrumb End -->
+<!--section start-->
+<section class="register-page section-b-space">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3>Tạo tài khoản</h3>
+                <div class="theme-card">
+                    @using (Html.BeginForm("CreateUser", "Register", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(false, null, new { @class = "text-danger" })
+                        <div class="form-row row">
+                            <div class="col-md-6">
+                                @Html.LabelFor(model => model.HoTen)
+                                @Html.TextBoxFor(model => model.HoTen, new { @class = "form-control", @placeholder = "FullName", @autofocus = "autofocus" })
+                                @Html.ValidationMessageFor(model => model.HoTen, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-md-6">
+                                @Html.LabelFor(model => model.UserName)
+                                @Html.TextBoxFor(model => model.UserName, new { @class = "form-control", @placeholder = "UserName", @autofocus = "autofocus" })
+                                @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-md-6">
+                                @Html.LabelFor(model => model.Email)
+                                @Html.TextBoxFor(model => model.Email, new { @class = "form-control", @placeholder = "Email", @autofocus = "autofocus" })
+                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-md-6">
+                                @Html.LabelFor(model => model.Sdt)
+                                @Html.TextBoxFor(model => model.Sdt, new { @class = "form-control", @placeholder = "Phone", @autofocus = "autofocus" })
+                                @Html.ValidationMessageFor(model => model.Sdt, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-row row">
+                            <div class="col-md-6">
+                                @Html.LabelFor(model => model.Password)
+                                @Html.TextBoxFor(model => model.Password, new { @class = "form-control", @placeholder = "Password", @type = "password" })
+                                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-md-6">
+                                @Html.LabelFor(model => model.ConfirmPassword)
+                                @Html.TextBoxFor(model => model.ConfirmPassword, new { @class = "form-control", @placeholder = "Confirm Password", @type = "password" })
+                                @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-md-6">
+                                @Html.Captcha(RegisterCaptcha)
+                                @Html.TextBox("CaptchaCode")
+                            </div>
+                            <div><button type="submit" href="#" class="btn btn-solid w-auto">Đăng ký</button></div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Section ends-->
+
+@section js
+{
+
+    @*<script src="~/Content/assets/js/controller/register-controller.js"></script>*@
+}
