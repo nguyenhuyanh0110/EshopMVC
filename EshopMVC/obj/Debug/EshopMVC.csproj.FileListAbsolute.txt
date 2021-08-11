@@ -88,3 +88,7 @@ D:\Project\.Net\EshopMVC\EshopMVC\bin\PayPal.dll
 D:\Project\.Net\EshopMVC\EshopMVC\bin\PayPal.xml
 D:\Project\.Net\EshopMVC\EshopMVC\bin\Email.dll
 D:\Project\.Net\EshopMVC\EshopMVC\bin\Email.pdb
+D:\Project\.Net\EshopMVC\EshopMVC\bin\BotDetect.dll
+D:\Project\.Net\EshopMVC\EshopMVC\bin\BotDetect.Web.Mvc.dll
+D:\Project\.Net\EshopMVC\EshopMVC\bin\System.Data.SQLite.dll
+D:\Project\.Net\EshopMVC\EshopMVC\bin\System.Data.SQLite.xml

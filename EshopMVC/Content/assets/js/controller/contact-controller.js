@@ -24,7 +24,7 @@
                         window.alert('Đã gửi thông tin liên hệ')
                         contact.resetValue();
                     }
-                }
+                },
             });
         })
     },
