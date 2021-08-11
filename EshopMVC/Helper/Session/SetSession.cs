@@ -10,5 +10,7 @@ namespace EshopMVC.Helper.Session
         public static string CartSession = "CartSession";
 
         public static string OrderSession = "OrderSession";
+
+        public static string UserSession = "UserSession";
     }
 }
