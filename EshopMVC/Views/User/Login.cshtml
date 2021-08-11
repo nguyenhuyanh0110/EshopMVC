@@ -1,0 +1,73 @@
+﻿@model EshopMVC.Models.LoginModel
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- breadcrumb start -->
+<div class="breadcrumb-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="page-title">
+                    <h2>customer's login</h2>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <nav aria-label="breadcrumb" class="theme-breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item active">login</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- breadcrumb End -->
+<!--section start-->
+<section class="login-page section-b-space">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="theme-card">
+                    @using (Html.BeginForm("Login","User",FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        <h4>Đăng nhập</h4>
+                        <hr />
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control", @autofocus = "autofocus" } })
+                                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", @type = "password" } })
+                                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-solid">Đăng nhập</button>
+                    }
+                </div>
+            </div>
+            <div class="col-lg-6 right-login">
+                <h3>Khách hàng mới</h3>
+                <div class="theme-card authentication-right">
+                    <h6 class="title-font">Đăng ký tài khoản</h6>
+                    <p>
+                        Đăng ký tài khoản để có thể nhận được nhiều voucher hấp dẫn
+                    </p><a href="/dang-ky"
+                           class="btn btn-solid">Tạo tài khoản</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Section ends-->
+

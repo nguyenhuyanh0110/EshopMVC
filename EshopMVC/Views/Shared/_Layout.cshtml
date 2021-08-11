@@ -37,6 +37,9 @@
     <link rel="stylesheet" type="text/css" href="~/Content/assets/css/style.css">
 
     @RenderSection("css", false)
+    @{ 
+        var UserSession = (EshopMVC.Models.LoginModel)Session[EshopMVC.Helper.Session.SetSession.UserSession];
+    }
 
 </head>
 
@@ -306,14 +309,29 @@
                             <li class="mobile-wishlist">
                                 <a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a>
                             </li>
-                            <li class="onhover-dropdown mobile-account">
-                                <i class="fa fa-user" aria-hidden="true"></i>
-                                My Account
-                                <ul class="onhover-show-div">
-                                    <li><a href="login.html">Login</a></li>
-                                    <li><a href="/dang-ky">Đăng ký</a></li>
-                                </ul>
-                            </li>
+                            @if (UserSession == null)
+                            {
+                                <li class="onhover-dropdown mobile-account">
+                                    <a href="/dang-nhap">
+                                        <i class="fa fa-user" aria-hidden="true">
+                                        </i>
+                                        My Account
+                                    </a>
+                                    <ul class="onhover-show-div">
+                                        <li><a href="/dang-nhap">Đăng nhập</a></li>
+                                        <li><a href="/dang-ky">Đăng ký</a></li>
+                                    </ul>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="onhover-dropdown mobile-account">
+                                    Hello: @UserSession.UserName
+                                    <ul class="onhover-show-div">
+                                        <li>@Html.ActionLink("Đăng xuất", "Logout", "User")</li>
+                                    </ul>
+                                </li>
+                            }
                         </ul>
                     </div>
                 </div>

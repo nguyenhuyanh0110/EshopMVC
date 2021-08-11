@@ -68,7 +68,13 @@ namespace EshopMVC
             routes.MapRoute(
                 name: "Register",
                 url: "dang-ky",
-                defaults: new { controller = "Register", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "User", action = "Index", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "Login",
+                url: "dang-nhap",
+                defaults: new { controller = "User", action = "Login", id = UrlParameter.Optional }
             );
 
             routes.MapRoute(

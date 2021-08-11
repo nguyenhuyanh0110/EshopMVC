@@ -140,9 +140,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
-    <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Areas\Admin\Data\CategoryModel.cs" />
     <Compile Include="Areas\Admin\Data\ProductModel.cs" />
+    <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\RegisterModel.cs" />
     <Compile Include="Areas\Admin\Helper\ImageHelper.cs" />
     <Compile Include="Areas\Admin\Session\SaveSession.cs" />
@@ -5722,11 +5722,11 @@
     <Content Include="Views\Cart\Success.cshtml" />
     <Content Include="Views\Cart\Failure.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
-    <Content Include="Views\Register\Index.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\User\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
