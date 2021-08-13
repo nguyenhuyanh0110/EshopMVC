@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace EshopMVC.Controllers
 {
-    public class ProductCategoryController : Controller
+    public class ProductClientController : Controller
     {
         // GET: ProductCategory
         public ActionResult Index()
@@ -23,6 +23,7 @@ namespace EshopMVC.Controllers
             return PartialView(product);
         }
 
+        [OutputCache(CacheProfile = "CacheById")]
         public ActionResult ProductDetail(long id)
         {
             var detail = new ProductFunction().ProductDetail(id);
@@ -37,6 +38,26 @@ namespace EshopMVC.Controllers
             ViewBag.Option = new ProductFunction().ListCategoryOption(id);
             ViewBag.NewProduct = new ProductFunction().ListNewProduct(4);
             return View(ListProduct);
+        }
+
+        public JsonResult SearchItem(string q)
+        {
+            var item = new ProductFunction().ListName(q);
+            return Json(new
+            {
+                data = item,
+                status = true
+            }, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult Search(string keyword)
+        {
+            var item = new ProductFunction().FindByName(keyword);
+            if(item.Count() > 0)
+            {
+                return View(item);
+            }
+            return Redirect("error");
         }
     }
 }

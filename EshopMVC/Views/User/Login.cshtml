@@ -5,6 +5,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@section css{
+    <link href="~/Content/assets/assets/css/bootstrap-social.css" rel="stylesheet" />
+}
+
 <!-- breadcrumb start -->
 <div class="breadcrumb-section">
     <div class="container">
@@ -32,7 +36,7 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="theme-card">
-                    @using (Html.BeginForm("Login","User",FormMethod.Post))
+                    @using (Html.BeginForm("Login", "User", FormMethod.Post))
                     {
                         @Html.AntiForgeryToken()
                         <h4>Đăng nhập</h4>
@@ -53,6 +57,11 @@
                             </div>
                         </div>
                         <button type="submit" class="btn btn-solid">Đăng nhập</button>
+                        <br />
+                        <a href="/User/LoginFb" class="btn btn-block btn-social btn-facebook" >
+                            <span class="fa fa-facebook"></span>
+                            Đăng nhập bằng Facebook
+                        </a>
                     }
                 </div>
             </div>
@@ -70,4 +79,3 @@
     </div>
 </section>
 <!--Section ends-->
-

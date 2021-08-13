@@ -58,6 +58,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Facebook, Version=6.0.10.0, Culture=neutral, PublicKeyToken=58cb4f2111d1e6de, processorArchitecture=MSIL">
+      <HintPath>..\packages\Facebook.7.0.6\lib\net45\Facebook.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -142,6 +145,7 @@
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
     <Compile Include="Areas\Admin\Data\CategoryModel.cs" />
     <Compile Include="Areas\Admin\Data\ProductModel.cs" />
+    <Compile Include="Controllers\ProductClientController.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\RegisterModel.cs" />
     <Compile Include="Areas\Admin\Helper\ImageHelper.cs" />
@@ -156,7 +160,6 @@
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NotFoundController.cs" />
-    <Compile Include="Controllers\ProductCategoryController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -169,6 +172,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\assets\assets\css\admin.css" />
+    <Content Include="Content\assets\assets\css\bootstrap-social.css" />
     <Content Include="Content\assets\assets\css\landing_page.css" />
     <Content Include="Content\assets\assets\css\pages\elements.css" />
     <Content Include="Content\assets\assets\css\style.css" />
@@ -1391,6 +1395,7 @@
     <Content Include="Content\assets\assets\images\sub-banner2.png" />
     <Content Include="Content\assets\assets\images\wave-bg.jpg" />
     <Content Include="Content\assets\css\admin.css" />
+    <Content Include="Content\assets\css\jquery-ui.css" />
     <Content Include="Content\assets\css\landing_page.css" />
     <Content Include="Content\assets\css\pages\elements.css" />
     <Content Include="Content\assets\css\style.css" />
@@ -4583,6 +4588,7 @@
     <Content Include="Content\assets\js\chat-menu.js" />
     <Content Include="Content\assets\js\clipboard\clipboard.min.js" />
     <Content Include="Content\assets\js\color-setting.js" />
+    <Content Include="Content\assets\js\controller\base-controller.js" />
     <Content Include="Content\assets\js\controller\cart-controller.js" />
     <Content Include="Content\assets\js\controller\contact-controller.js" />
     <Content Include="Content\assets\js\controller\register-controller.js" />
@@ -5294,6 +5300,7 @@
     <Content Include="Content\assets\js\imagesloaded.pkgd.min.js" />
     <Content Include="Content\assets\js\isotope.min.js" />
     <Content Include="Content\assets\js\jquery-3.3.1.min.js" />
+    <Content Include="Content\assets\js\jquery-ui.js" />
     <Content Include="Content\assets\js\jquery-ui.min.js" />
     <Content Include="Content\assets\js\jquery.elevatezoom.js" />
     <Content Include="Content\assets\js\jquery.exitintent.js" />
@@ -5688,6 +5695,7 @@
     <Content Include="Areas\Admin\Views\Product\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Product\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Product\Edit.cshtml" />
+    <Content Include="Content\assets\assets\css\bootstrap-social.less" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -5711,8 +5719,6 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\TopMenu.cshtml" />
     <Content Include="Views\Shared\ProductCategory.cshtml" />
-    <Content Include="Views\ProductCategory\ProductDetail.cshtml" />
-    <Content Include="Views\ProductCategory\ListProduct.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Shared\HeaderCart.cshtml" />
     <Content Include="Views\Cart\Checkout.cshtml" />
@@ -5724,6 +5730,9 @@
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\User\Login.cshtml" />
+    <Content Include="Views\ProductClient\ListProduct.cshtml" />
+    <Content Include="Views\ProductClient\ProductDetail.cshtml" />
+    <Content Include="Views\ProductClient\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

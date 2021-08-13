@@ -35,5 +35,15 @@ namespace Model.Function.Client
         {
             return db.PRODUCT.Find(id);
         }
+
+        public List<string> ListName(string keyword)
+        {
+            return db.PRODUCT.Where(a => a.PRODUCTNAME.Contains(keyword)).Select(a => a.PRODUCTNAME).ToList();
+        }
+
+        public List<PRODUCT> FindByName(string name)
+        {
+            return db.PRODUCT.Where(a => a.PRODUCTNAME.Contains(name)).ToList();
+        }
     }
 }

@@ -337,9 +337,9 @@
                                                 </a>
                                             </div>
                                             <div class="cart-box style-1 rounded-0">
-                                                <button onclick="openCart()" title="Add to cart">
+                                                <a href="@Url.Action("AddItem","Cart", new { Id = item.PRODUCTID, Quantity = 1 })" title="Add to cart">
                                                     <i class="ti-shopping-cart"></i>
-                                                </button>
+                                                </a>
                                                 <a href="javascript:void(0)" title="Add to Wishlist">
                                                     <i class="ti-heart"
                                                        aria-hidden="true"></i>
@@ -370,9 +370,9 @@
                                                 </a>
                                             </div>
                                             <div class="cart-box style-1 rounded-0">
-                                                <button onclick="openCart()" title="Add to cart">
+                                                <a href="@Url.Action("AddItem","Cart", new { Id = item.PRODUCTID, Quantity = 1 })" title="Add to cart">
                                                     <i class="ti-shopping-cart"></i>
-                                                </button>
+                                                </a>
                                                 <a href="javascript:void(0)" title="Add to Wishlist">
                                                     <i class="ti-heart"
                                                        aria-hidden="true"></i>

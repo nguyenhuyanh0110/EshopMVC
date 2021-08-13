@@ -92,3 +92,5 @@ D:\Project\.Net\EshopMVC\EshopMVC\bin\BotDetect.dll
 D:\Project\.Net\EshopMVC\EshopMVC\bin\BotDetect.Web.Mvc.dll
 D:\Project\.Net\EshopMVC\EshopMVC\bin\System.Data.SQLite.dll
 D:\Project\.Net\EshopMVC\EshopMVC\bin\System.Data.SQLite.xml
+D:\Project\.Net\EshopMVC\EshopMVC\bin\Facebook.dll
+D:\Project\.Net\EshopMVC\EshopMVC\bin\Facebook.xml
