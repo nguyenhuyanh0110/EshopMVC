@@ -7,8 +7,11 @@ using EshopMVC.Models;
 using BotDetect.Web.Mvc;
 using LoginModel = EshopMVC.Models.LoginModel;
 using EshopMVC.Helper.Session;
+using Facebook;
+using System.Configuration;
+using System;
 
-namespace EshopMVC.Areas.Admin.Controllers
+namespace EshopMVC.Controllers
 {
     public class UserController : Controller
     {
@@ -102,6 +105,75 @@ namespace EshopMVC.Areas.Admin.Controllers
         {
             Session.Clear();
             return Redirect("/");
+        }
+
+        //Call Api facebook
+        private Uri CallApi
+        {
+            get
+            {
+                var UriBuilder = new UriBuilder(Request.Url);
+                UriBuilder.Query = null;
+                UriBuilder.Fragment = null;
+                UriBuilder.Path = Url.Action("FacebookCallBack");
+                return UriBuilder.Uri;
+            }
+        }
+
+        //receive Callback from Fb
+        public ActionResult FacebookCallBack(string code)
+        {
+            var fb = new FacebookClient();
+            dynamic result = fb.Post("oauth/access_token", new
+            {
+                client_id = ConfigurationManager.AppSettings["FbId"],
+                client_secret = ConfigurationManager.AppSettings["FbKey"],
+                redirect_uri = CallApi.AbsoluteUri,
+                code = code
+            });
+            var token = result.access_token;
+            if(!string.IsNullOrEmpty(token))
+            {
+                fb.AccessToken = token;
+                dynamic info = fb.Get("me?fields=first_name,middle_name,last_name,id,email");
+                string email = info.email;
+                string UserName = info.email;
+                string FirstName = info.first_name;
+                string MiddleName = info.middle_name;
+                string LastName = info.last_name;
+
+                var user = new USERINFO()
+                {
+                    EMAIL = email,
+                    USERNAME = email,
+                    HOTEN = FirstName + "" + MiddleName + "" + LastName
+                };
+                var insert = new UserClientFunction().InsertUser(user);
+                if(insert > 0)
+                {
+                    var UserSession = new LoginModel()
+                    {
+                        UserName = user.USERNAME,
+                        Password = user.PASSWORD
+                    };
+                    Session.Add(SetSession.UserSession, UserSession);
+                }
+            }
+            return Redirect("/");
+        }
+
+        public ActionResult LoginFb()
+        {
+            var fb = new FacebookClient();
+            var LoginUrl = fb.GetLoginUrl(new
+            {
+                client_id = ConfigurationManager.AppSettings["FbId"],
+                client_secret = ConfigurationManager.AppSettings["FbKey"],
+                redirect_uri = CallApi.AbsoluteUri,
+                respone_type = "code",
+                scope = "email"
+            });
+            return Redirect(LoginUrl.AbsoluteUri);
         }
     }
 }

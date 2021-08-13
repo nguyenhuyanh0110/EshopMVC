@@ -23,6 +23,7 @@ namespace EshopMVC.Controllers
 
         //use for partial view
         [ChildActionOnly]
+        [OutputCache(Duration = 3600)]
         public ActionResult TopMenu()
         {
             var Menu = new MenuFunction().ListMenu(1);

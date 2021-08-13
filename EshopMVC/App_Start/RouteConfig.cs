@@ -20,13 +20,13 @@ namespace EshopMVC
             routes.MapRoute(
                 name: "ProductCategory",
                 url: "san-pham/{Metatitle}-{id}",
-                defaults: new { controller = "ProductCategory", action = "ListProduct", id = UrlParameter.Optional }
+                defaults: new { controller = "ProductClient", action = "ListProduct", id = UrlParameter.Optional }
             );
 
             routes.MapRoute(
                 name: "ProductDetail",
                 url: "chi-tiet/{Metatitle}-{id}",
-                defaults: new { controller = "ProductCategory", action = "ProductDetail", id = UrlParameter.Optional }
+                defaults: new { controller = "ProductClient", action = "ProductDetail", id = UrlParameter.Optional }
             );
 
             routes.MapRoute(
@@ -75,6 +75,12 @@ namespace EshopMVC
                 name: "Login",
                 url: "dang-nhap",
                 defaults: new { controller = "User", action = "Login", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "Search",
+                url: "tim-kiem",
+                defaults: new { controller = "ProductClient", action = "Search", id = UrlParameter.Optional }
             );
 
             routes.MapRoute(

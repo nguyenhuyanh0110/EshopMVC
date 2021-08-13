@@ -32,12 +32,15 @@
 
     <!-- Bootstrap css -->
     <link rel="stylesheet" type="text/css" href="~/Content/assets/css/vendors/bootstrap.css">
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+    <!--jquery theme-->
+    <link href="~/Content/assets/css/jquery-ui.css" rel="stylesheet" />
 
     <!-- Theme css -->
     <link rel="stylesheet" type="text/css" href="~/Content/assets/css/style.css">
 
     @RenderSection("css", false)
-    @{ 
+    @{
         var UserSession = (EshopMVC.Models.LoginModel)Session[EshopMVC.Helper.Session.SetSession.UserSession];
     }
 
@@ -299,7 +302,7 @@
                     <div class="col-lg-6">
                         <div class="header-contact">
                             <ul>
-                                <li>Welcome to Our store Multikart</li>
+                                <li>Welcome to Our store</li>
                                 <li><i class="fa fa-phone" aria-hidden="true"></i>Call Us: 123 - 456 - 7890</li>
                             </ul>
                         </div>
@@ -307,7 +310,10 @@
                     <div class="col-lg-6 text-end">
                         <ul class="header-dropdown">
                             <li class="mobile-wishlist">
-                                <a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a>
+                                <a href="#">
+                                    <i class="fa fa-heart" aria-hidden="true"></i>
+                                    Wishlist
+                                </a>
                             </li>
                             @if (UserSession == null)
                             {
@@ -315,7 +321,7 @@
                                     <a href="/dang-nhap">
                                         <i class="fa fa-user" aria-hidden="true">
                                         </i>
-                                        My Account
+                                        Tài khoản của tôi
                                     </a>
                                     <ul class="onhover-show-div">
                                         <li><a href="/dang-nhap">Đăng nhập</a></li>
@@ -357,14 +363,13 @@
                                 </a>
                             </div>
                         </div>
-                        <div>
-                            <form class="form_search" role="form">
-                                <input id="query search-autocomplete" type="search"
-                                       placeholder="Search any Device or Gadgets" class="nav-search nav-search-field"
-                                       aria-expanded="true">
-                                <button type="submit" name="nav-submit-button" class="btn-search">
-                                    <i class="ti-search"></i>
-                                </button>
+                        <div class="search-box">
+                            <form action="/tim-kiem" class="form_search" method="get">
+                                <input id="search-id" type="text"
+                                       placeholder="Nhập tên sản phẩm để tìm kiếm" class="nav-search nav-search-field"
+                                       aria-expanded="true" name="keyword">
+                                <input type="submit" value="" />
+                                <i class="ti-search"></i>
                             </form>
                         </div>
                         <div class="menu-right pull-right">
@@ -452,7 +457,7 @@
                                     </div>
                                 </div>
                                 <ul id="sub-menu" class="sm pixelstrap sm-vertical ">
-                                    @{Html.RenderAction("ProductCategory", "ProductCategory"); }
+                                    @{Html.RenderAction("ProductCategory", "ProductClient"); }
                                 </ul>
                             </nav>
                         </div>
@@ -1215,12 +1220,14 @@
     <!-- tap to top end -->
     <!-- latest jquery-->
     <script src="~/Content/assets/js/jquery-3.3.1.min.js"></script>
+    <script src="~/Content/assets/js/jquery-ui.js"></script>
 
     <!-- Bootstrap js-->
     <script src="~/Content/assets/js/bootstrap.bundle.min.js"></script>
 
     <!-- Bootstrap Notification js-->
     <script src="~/Content/assets/js/bootstrap-notify.min.js"></script>
+
 
     <!-- slick js-->
     <script src="~/Content/assets/js/slick.js"></script>
@@ -1243,6 +1250,8 @@
     <script src="~/Content/assets/js/script.js"></script>
     <script src="~/Content/assets/js/custom-slick-animated.js"></script>
 
+    <!--Search product-->
+    <script src="~/Content/assets/js/controller/base-controller.js"></script>
     <!--Add item to Cart-->
     <script src="~/Content/assets/js/addtocart.js"></script>
 

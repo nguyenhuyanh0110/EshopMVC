@@ -1,0 +1,96 @@
+﻿@model List<Database.Entity.PRODUCT>
+
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- breadcrumb start -->
+<div class="breadcrumb-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="page-title">
+                    <h2>search</h2>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <nav aria-label="breadcrumb" class="theme-breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">Trang chủ</a></li>
+                        <li class="breadcrumb-item active">Tìm kiếm</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- breadcrumb End -->
+<!--section start-->
+<section class="authentication-page">
+    <div class="container">
+        <section class="search-block">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 offset-lg-3">
+                        <form class="form-header">
+                            <div class="input-group">
+                                <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)"
+                                       placeholder="Search Products......">
+                                <div class="input-group-append">
+                                    <button class="btn btn-solid"><i class="fa fa-search"></i>Search</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</section>
+<!-- section end -->
+<!-- product section start -->
+<section class="section-b-space ratio_asos">
+    <div class="container">
+        <div class="row search-product">
+            @foreach (var item in Model)
+            {
+                var url = "/chi-tiet/" + item.PRODUCTMETATITLE + "-" + item.PRODUCTID;
+                <div class="col-xl-2 col-md-4 col-6">
+                    
+                    <div class="product-box">
+                        <div class="img-wrapper">
+                            <div class="front">
+                                <a href="@url">
+                                    <img src="~/Content/Image/@item.PRODUCTIMAGE"
+                                         class="img-fluid blur-up lazyload bg-img" alt="">
+                                </a>
+                            </div>
+                            <div class="back">
+                                <a href="@url">
+                                    <img src="../assets/images/pro3/34.jpg"
+                                         class="img-fluid blur-up lazyload bg-img" alt="">
+                                </a>
+                            </div>
+                            <div class="cart-info cart-wrap">
+                                <a href="@Url.Action("AddItem","Cart", new { Id = item.PRODUCTID, Quantity = 1 })" title="Add to cart">
+                                    <i class="ti-shopping-cart"></i>
+                                </a>
+                                <a href="javascript:void(0)" title="Add to Wishlist">
+                                    <i class="ti-heart" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="product-detail">
+                            <a href="@url">
+                                <h6>@item.PRODUCTNAME</h6>
+                            </a>
+                            <h4>@(item.PRODUCTPRICE.ToString("N0"))</h4>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+<!-- product section end -->
