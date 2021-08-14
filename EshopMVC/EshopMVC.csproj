@@ -4591,7 +4591,6 @@
     <Content Include="Content\assets\js\controller\base-controller.js" />
     <Content Include="Content\assets\js\controller\cart-controller.js" />
     <Content Include="Content\assets\js\controller\contact-controller.js" />
-    <Content Include="Content\assets\js\controller\product-admin-controller.js" />
     <Content Include="Content\assets\js\controller\register-controller.js" />
     <Content Include="Content\assets\js\counter\counter-custom.js" />
     <Content Include="Content\assets\js\counter\jquery.counterup.min.js" />
