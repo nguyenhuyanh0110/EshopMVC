@@ -118,6 +118,5 @@ namespace EshopMVC.Areas.Admin.Controllers
             var item = new ProductFunction();
             ViewBag.ProductCategory = new SelectList(item.ListCategory(), "CATEGORYID", "CATEGORYNAME", SelectCategory);
         }
-
     }
 }
