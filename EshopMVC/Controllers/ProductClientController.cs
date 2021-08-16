@@ -33,11 +33,25 @@ namespace EshopMVC.Controllers
 
         public ActionResult ListProduct(long id)
         {
-            var ListProduct = new ProductFunction().ProductDetail(id);
-            ViewBag.CategoryName = new ProductFunction().Breakcrumb(id);
-            ViewBag.Option = new ProductFunction().ListCategoryOption(id);
-            ViewBag.NewProduct = new ProductFunction().ListNewProduct(4);
-            return View(ListProduct);
+            try
+            {
+                ViewBag.CategoryName = new ProductFunction().Breakcrumb(id);
+                ViewBag.Option = new ProductFunction().ListCategoryOption(id);
+                ViewBag.NewProduct = new ProductFunction().ListNewProduct(4);
+                ViewBag.ProductSlide = new ProductFunction().ListSlide(id);
+                var ListProduct = new ProductFunction().ListProductBySubMenu(id);
+                return View(ListProduct);
+            }
+            catch (Exception exp)
+            {
+                return Redirect("error");
+            }
+        }
+
+        public JsonResult Filter(long id)
+        {
+            var ListProduct = new ProductFunction().ListProductBySubMenu(id);
+            return Json(new { status = true });
         }
 
         public JsonResult SearchItem(string q)

@@ -14,6 +14,16 @@ namespace Model.Function.Admin
             return db.CATEGORY.ToList();
         }
 
+        public List<string> SubMenu(int? id)
+        {
+            return db.CategoryMenu.Where(a => a.ParentId == id).Select(a => a.Name).ToList();
+        }
+
+        public List<int> SubMenuId(int? id)
+        {
+            return db.CategoryMenu.Where(a => a.ParentId == id).Select(a => a.Id).ToList();
+        }
+
         public List<PRODUCT> ListProduct()
         {
             return db.PRODUCT.ToList();

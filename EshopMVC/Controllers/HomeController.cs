@@ -12,12 +12,14 @@ namespace EshopMVC.Controllers
     public class HomeController : Controller
     {
         // GET: Home
+        [OutputCache(Duration = 3600)]
         public ActionResult Index()
         {
             ViewBag.Slide = new SlideFunction().ListSlide();
             var product = new ProductFunction();
             ViewBag.NewProduct = product.ListNewProduct(6);
             ViewBag.TrendingProduct = product.ListTrendingProduct(4);
+            ViewBag.Promotion = new ProductFunction().ListPromotion(6);
             return View();
         }
 

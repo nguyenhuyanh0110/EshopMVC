@@ -19,6 +19,8 @@
         [Display(Name = "Giá sản phẩm")]
         public decimal PRODUCTPRICE { get; set; }
 
+        public decimal? Promotion { get; set; }
+
         [Display(Name = "Hình ảnh sản phẩm")]
         [StringLength(250)]
         public string PRODUCTIMAGE { get; set; }
@@ -36,5 +38,7 @@
         public DateTime CreatedDate { get; set; }
 
         public DateTime? TrendingDate { get; set; }
+
+        public int? SubMenu { get; set; }
     }
 }

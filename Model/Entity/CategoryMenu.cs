@@ -21,5 +21,7 @@
         public int DisplayOrder { get; set; }
 
         public bool Status { get; set; }
+
+        public string Slide { get; set; }
     }
 }
