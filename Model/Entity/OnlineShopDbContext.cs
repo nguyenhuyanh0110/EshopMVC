@@ -24,6 +24,8 @@ namespace Database.Entity
         public virtual DbSet<Contact> Contact { get; set; }
         public virtual DbSet<Feedback> Feedback { get; set; }
 
+        public virtual DbSet<GroupUser> GroupUser { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Menu>()
@@ -58,6 +60,9 @@ namespace Database.Entity
                 .IsUnicode(false);
             modelBuilder.Entity<Feedback>()
                 .Property(e => e.Email)
+                .IsUnicode(false);
+            modelBuilder.Entity<GroupUser>()
+                .Property(e => e.Id)
                 .IsUnicode(false);
         }
     }

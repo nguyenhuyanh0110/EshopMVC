@@ -27,5 +27,8 @@ namespace EshopMVC.Areas.Admin.Data
         [AllowHtml]
         [Display(Name ="Mô tả sản phẩm")]
         public string ProductDesc { get; set; }
+
+        [Display(Name ="Danh mục con")]
+        public int SubMenu { get; set; }
     }
 }

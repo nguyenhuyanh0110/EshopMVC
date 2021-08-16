@@ -3,6 +3,7 @@ using EshopMVC.Areas.Admin.Data;
 using EshopMVC.Areas.Admin.Helper;
 using Model.Function.Admin;
 using System;
+using System.Collections.Generic;
 using System.Web;
 using System.Web.Mvc;
 
@@ -51,7 +52,8 @@ namespace EshopMVC.Areas.Admin.Controllers
                         PRODUCTPRICE = model.ProductPrice,
                         PRODUCTIMAGE = model.ProductImage,
                         PRODUCTDESC = model.ProductDesc,
-                        CreatedDate = DateTime.Now
+                        CreatedDate = DateTime.Now,
+                        SubMenu = model.SubMenu
                     };
                     var InsertDb = function.InsertProduct(item);
                     if (InsertDb != null)
@@ -117,6 +119,13 @@ namespace EshopMVC.Areas.Admin.Controllers
         {
             var item = new ProductFunction();
             ViewBag.ProductCategory = new SelectList(item.ListCategory(), "CATEGORYID", "CATEGORYNAME", SelectCategory);
+        }
+
+        public JsonResult SubMenu(int? id)
+        {
+            var name = new ProductFunction().SubMenu(id);
+            var SubId = new ProductFunction().SubMenuId(id);
+            return Json(new { status = true, id = SubId ,SubName = name}, JsonRequestBehavior.AllowGet);
         }
     }
 }

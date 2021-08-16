@@ -27,5 +27,7 @@ namespace Database.Entity
 
         [StringLength(50)]
         public string PASSWORD { get; set; }
+
+        public string GroupId { get; set; }
     }
 }

@@ -21,7 +21,17 @@ namespace Model.Function.Client
             return db.PRODUCT.Where(a => a.TrendingDate != null && a.TrendingDate > DateTime.Now).OrderByDescending(a => a.CreatedDate).Take(quantity).ToList();
         }
 
+        public List<PRODUCT> ListPromotion(int quantity)
+        {
+            return db.PRODUCT.Where(a => a.TrendingDate != null && a.Promotion > 0).ToList();
+        }
+
         public CategoryMenu Breakcrumb(long id)
+        {
+            return db.CategoryMenu.Find(id);
+        }
+
+        public CategoryMenu ListSlide(long id)
         {
             return db.CategoryMenu.Find(id);
         }
@@ -44,6 +54,11 @@ namespace Model.Function.Client
         public List<PRODUCT> FindByName(string name)
         {
             return db.PRODUCT.Where(a => a.PRODUCTNAME.Contains(name)).ToList();
+        }
+
+        public List<PRODUCT> ListProductBySubMenu(long id)
+        {
+            return db.PRODUCT.Where(a => a.SubMenu == id || a.PRODUCTCATEGORY == id).ToList();
         }
     }
 }
